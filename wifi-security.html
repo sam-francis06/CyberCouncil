@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tool-dashboard.css">
+    <link rel="stylesheet" href="css/wifi-security.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i class="ph ph-list"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="tool-dashboard.html" class="nav-link">Tools</a>
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="user-cyber-laws.html" class="nav-link">Cyber Laws</a>
+            <a href="profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-dropdown">
+        <a href="dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-gauge"></i>
+            Dashboard
+        </a>
+        <a href="tool-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-wrench"></i>
+            Tools
+        </a>
+        <a href="reports.html" class="mobile-nav-link">
+            <i class="ph ph-chart-pie-slice"></i>
+            Reports
+        </a>
+        <a href="user-cyber-laws.html" class="mobile-nav-link">
+            <i class="ph ph-gavel"></i>
+            Cyber Laws
+        </a>
+        <a href="profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>MAIN MENU</h3>
+                <a href="tool-dashboard.html" class="menu-item">
+                    <i class="ph ph-squares-four"></i>
+                    Dashboard
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>SECURITY TOOLS</h3>
+                <a href="phishing-detection.html" class="menu-item">
+                    <i class="ph ph-fish"></i>
+                    Phishing Detection
+                </a>
+            
+                <a href="wifi-security.html" class="menu-item active">
+                    <i class="ph ph-wifi-high"></i>
+                    WiFi Security
+                </a>
+                <a href="social-engineering.html" class="menu-item">
+                    <i class="ph ph-users-three"></i>
+                    Social Engineering
+                </a>
+                <a href="password-checker.html" class="menu-item">
+                    <i class="ph ph-password"></i>
+                    Password Strength
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>ANALYSIS TOOLS</h3>
+                
+                <a href="privacy-analyzer.html" class="menu-item">
+                    <i class="ph ph-shield-check"></i>
+                    Privacy Analysis
+                </a>
+                <a href="malware.html" class="menu-item">
+                    <i class="ph ph-virus"></i>
+                    Malware Scanner
+                </a>
+                <a href="image-metadata.html" class="menu-item">
+                    <i class="ph ph-image"></i>
+                    Image Metadata Extractor
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>WiFi Security Scanner</h1>
+                <p>Check your network security and get actionable recommendations to improve your protection</p>
+            </div>
+
+            <div class="wifi-scanner-container">
+                <div class="scanner-intro">
+                    <div class="scanner-icon">
+                        <i class="ph ph-wifi-high"></i>
+                    </div>
+                    <div class="scanner-text">
+                        <h2>Real Network Security Check</h2>
+                        <p>This tool performs real checks on your network connection to identify potential security issues and provides actionable recommendations to improve your security.</p>
+                    </div>
+                </div>
+
+                <div class="privacy-notice">
+                    <i class="ph ph-shield"></i>
+                    <div>
+                        <h3>Privacy Focused</h3>
+                        <p>This scanner respects your privacy. We only perform checks that are possible within your browser's security sandbox and don't collect or store any of your data.</p>
+                    </div>
+                </div>
+
+                <div class="privacy-notice" style="background-color: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b;">
+                    <i class="ph ph-warning" style="color: #f59e0b;"></i>
+                    <div>
+                        <h3>Browser Limitations</h3>
+                        <p>Due to browser security restrictions, this scanner can only perform limited checks. It cannot directly access WiFi hardware details like encryption type or a complete list of connected devices. The scanner works with what's available within the browser's security sandbox.</p>
+                    </div>
+                </div>
+
+                <div class="scan-button-container">
+                    <button id="startScanButton" class="scan-button">
+                        <i class="ph ph-scan"></i>
+                        Start Network Security Scan
+                    </button>
+                    <p class="scan-note">Scan takes approximately 30 seconds to complete</p>
+                </div>
+
+                <div id="scanningAnimation" class="scanning-animation hidden">
+                    <div class="wifi-waves">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <p>Scanning your network security...</p>
+                    <div class="scan-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p class="progress-text">0%</p>
+                    </div>
+                </div>
+
+                <div id="scanResults" class="scan-results hidden">
+                    <div class="results-header">
+                        <h2>Network Security Results</h2>
+                        <div class="overall-score">
+                            <div class="score-circle">
+                                <span id="securityScore">0</span>
+                            </div>
+                            <p>Security Score</p>
+                        </div>
+                    </div>
+
+                    <div class="results-grid">
+                        <!-- Public IP Check -->
+                        <div class="result-card" id="publicIpCard">
+                            <div class="result-icon">
+                                <i class="ph ph-globe"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Public IP Check</h3>
+                                <p class="result-status">Checking...</p>
+                                <p class="result-detail">Your public IP: <span id="publicIp">-</span></p>
+                                <div class="result-recommendation hidden">
+                                    <h4>Recommendation:</h4>
+                                    <p>Your IP appears to be properly protected by your ISP's firewall.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Network Connection -->
+                        <div class="result-card" id="encryptionCard">
+                            <div class="result-icon">
+                                <i class="ph ph-lock"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Network Connection</h3>
+                                <p class="result-status">Checking...</p>
+                                <p class="result-detail">Connection type: <span id="encryptionType">-</span></p>
+                                <div class="result-recommendation hidden">
+                                    <h4>Recommendation:</h4>
+                                    <p>Your network uses strong encryption. Keep it updated.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Network Devices -->
+                        <div class="result-card" id="devicesCard">
+                            <div class="result-icon">
+                                <i class="ph ph-devices"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Network Devices</h3>
+                                <p class="result-status">Checking...</p>
+                                <p class="result-detail">Detected IPs: <span id="deviceCount">-</span></p>
+                                <div class="result-recommendation hidden">
+                                    <h4>Recommendation:</h4>
+                                    <p>Regularly check for unknown devices on your network.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Connection Security -->
+                        <div class="result-card" id="portsCard">
+                            <div class="result-icon">
+                                <i class="ph ph-plugs"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Connection Security</h3>
+                                <p class="result-status">Checking...</p>
+                                <p class="result-detail">Status: <span id="portStatus">-</span></p>
+                                <div class="result-recommendation hidden">
+                                    <h4>Recommendation:</h4>
+                                    <p>Your connection is secure. Continue using HTTPS for sensitive information.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DNS Security -->
+                        <div class="result-card" id="routerCard">
+                            <div class="result-icon">
+                                <i class="ph ph-magnifying-glass"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>DNS Security</h3>
+                                <p class="result-status">Checking...</p>
+                                <p class="result-detail">Status: <span id="routerStatus">-</span></p>
+                                <div class="result-recommendation hidden">
+                                    <h4>Recommendation:</h4>
+                                    <p>Consider using secure DNS services like Cloudflare (1.1.1.1) or Google (8.8.8.8).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Connection Quality -->
+                        <div class="result-card" id="ssidCard">
+                            <div class="result-icon">
+                                <i class="ph ph-broadcast"></i>
+                            </div>
+                            <div class="result-content">
+                                <h3>Connection Quality</h3>
+                                <p class="result-status">Checking...</p>
+                                <p class="result-detail">Network: <span id="ssidName">-</span></p>
+                                <div class="result-recommendation hidden">
+                                    <h4>Recommendation:</h4>
+                                    <p>Your connection quality is good, which helps maintain security features.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="security-tips">
+                        <h3><i class="ph ph-lightbulb"></i> Network Security Tips</h3>
+                        <ul>
+                            <li>Use a strong, unique password for your WiFi network</li>
+                            <li>Enable WPA3 encryption if your router supports it</li>
+                            <li>Keep your router's firmware updated regularly</li>
+                            <li>Create a separate guest network for visitors</li>
+                            <li>Use a VPN when connecting to public WiFi networks</li>
+                            <li>Enable DNS over HTTPS (DoH) for enhanced privacy</li>
+                            <li>Disable remote management on your router</li>
+                            <li>Use a firewall to protect your devices</li>
+                            <li>Regularly check connected devices for unauthorized access</li>
+                            <li>Consider using a network monitoring tool</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="downloadReportButton" class="action-button">
+                            <i class="ph ph-file-pdf"></i>
+                            Download PDF Report
+                        </button>
+                        <button id="rescanButton" class="action-button secondary">
+                            <i class="ph ph-arrows-clockwise"></i>
+                            Scan Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/tool-dashboard.js"></script>
+    <script src="js/wifi-security.js"></script>
+</body>
+</html>

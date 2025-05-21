@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/police-tool-dashboard.css">
+    <link rel="stylesheet" href="css/user-ip-display.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i data-lucide="menu"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="shield"></i>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="police-dashboard.html" class="nav-link">Dashboard</a>
+            <a href="case-management.html" class="nav-link">Case Management</a>
+            <a href="police-tool-dashboard.html" class="nav-link">Tools</a>
+            
+            <a href="cyber-laws.html" class="nav-link">Cyber Laws</a>
+            <a href="police-profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-dropdown">
+        <a href="police-dashboard.html" class="mobile-nav-link">
+          <i class="ph ph-gauge"></i>
+          Dashboard
+        </a>
+        <a href="case-management.html" class="mobile-nav-link">
+          <i class="ph ph-folders"></i>
+          Case Management
+        </a>
+        <a href="police-tool-dashboard.css" class="mobile-nav-link">
+          <i class="ph ph-wrench"></i>
+          Tools
+        </a>
+        
+        <a href="cyber-laws.html" class="mobile-nav-link">
+          <i class="ph ph-gavel"></i>
+          Cyber Laws
+        </a>
+        <a href="police-profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+      </div>
+      
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>MAIN MENU</h3>
+                <a href="police-tool-dashboard.html" class="menu-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    Tool-Dashboard
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>Digital Forensics Tools</h3>
+                <a href="file-hash-generator.html" class="menu-item">
+                    <i data-lucide="search"></i>
+                    File Hash Generator
+                </a>
+                <a href="file-metadata-analyzer.html" class="menu-item">
+                    <i data-lucide="file-search"></i>
+                    File Metadata Analyzer
+                </a>
+                <a href="metadata.html" class="menu-item">
+                    <i data-lucide="image"></i>
+                    Image Metadata Viewer
+                </a>
+                <a href="file-type-validator.html" class="menu-item">
+                    <i data-lucide="file-check-2"></i>
+                    File Type Validator
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>Cyber Investigation Tools</h3>
+                <a href="username-lookup.html" class="menu-item">
+                    <i data-lucide="user-search"></i>
+                    Username Lookup
+                </a>
+                <a href="url-status-checker.html" class="menu-item">
+                    <i data-lucide="globe"></i>
+                    URL Live Status Checker
+                </a>
+                <a href="user-ip-display.html" class="menu-item active">
+                    <i data-lucide="map-pin"></i>
+                    User IP Display
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>User IP Display Tool</h1>
+                <p>View and analyze IP address information for cybersecurity investigations</p>
+            </div>
+
+            <div class="ip-tool-container">
+                <div class="ip-info-card">
+                    <div class="ip-header">
+                        <div class="ip-icon">
+                            <i data-lucide="wifi"></i>
+                        </div>
+                        <h2>IP Information</h2>
+                    </div>
+                    <div class="ip-input-container">
+                        <input type="text" id="ip-input" placeholder="Enter IP address (e.g., 8.8.8.8)" />
+                        <button id="search-btn" class="primary-button">
+                            <i data-lucide="search"></i>
+                            Search
+                        </button>
+                    </div>
+                    <div class="ip-content">
+                        <div class="ip-data">
+                            <span class="label">IP Address:</span>
+                            <span id="ip-address" class="value">Loading...</span>
+                        </div>
+                        <div class="ip-data">
+                            <span class="label">Location:</span>
+                            <span id="location" class="value">Loading...</span>
+                        </div>
+                        <div class="ip-data">
+                            <span class="label">ISP:</span>
+                            <span id="isp" class="value">Loading...</span>
+                        </div>
+                        <div class="ip-data">
+                            <span class="label">Timezone:</span>
+                            <span id="timezone" class="value">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="ip-actions">
+                        <button id="refresh-btn" class="primary-button">
+                            <i data-lucide="refresh-cw"></i>
+                            Refresh Data
+                        </button>
+                        <button id="copy-btn" class="secondary-button">
+                            <i data-lucide="copy"></i>
+                            Copy IP
+                        </button>
+                    </div>
+                </div>
+
+                <div id="map-container" class="map-card">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/police-auth-check.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <script src="js/user-ip-display.js"></script>
+    <script src="js/police-tool-dashboard.js"></script>
+</body>
+</html>

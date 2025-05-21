@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/police-tool-dashboard.css">
+    <link rel="stylesheet" href="css/file-hash-generator.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i data-lucide="menu"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="shield"></i>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="police-dashboard.html" class="nav-link">Dashboard</a>
+            <a href="case-management.html" class="nav-link">Case Management</a>
+            <a href="police-tool-dashboard.html" class="nav-link">Tools</a>
+            <a href="cyber-laws.html" class="nav-link">Cyber Laws</a>
+            <a href="police-profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-dropdown">
+        <a href="police-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-gauge"></i>
+            Dashboard
+        </a>
+        <a href="case-management.html" class="mobile-nav-link">
+            <i class="ph ph-folders"></i>
+            Case Management
+        </a>
+        <a href="police-tool-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-wrench"></i>
+            Tools
+        </a>
+        <a href="cyber-laws.html" class="mobile-nav-link">
+            <i class="ph ph-gavel"></i>
+            Cyber Laws
+        </a>
+        <a href="police-profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+              <h3>MAIN MENU</h3>
+              <a href="police-tool-dashboard.html" class="menu-item">
+                <i data-lucide="layout-dashboard"></i>
+                Tool-Dashboard
+              </a>
+            </div>
+    
+            <div class="menu-section">
+              <h3>Digital Forensics Tools</h3>
+              <a href="file-hash-generator.html" class="menu-item active">
+                <i data-lucide="search"></i>
+                File Hash Generator
+              </a>
+              <a href="file-metadata-analyzer.html" class="menu-item">
+                <i data-lucide="file-search"></i>
+                File Metadata Analyzer
+              </a>
+              <a href="metadata.html" class="menu-item">
+                <i data-lucide="image"></i>
+                Image Metadata Viewer
+              </a>
+              <a href="file-type-validator.html" class="menu-item">
+                <i data-lucide="file-check-2"></i>
+                File Type Validator
+              </a>
+            </div>
+    
+            <div class="menu-section">
+              <h3>Cyber Investigation Tools</h3>
+              <a href="username-lookup.html" class="menu-item">
+                <i data-lucide="user-search"></i>
+                Username Lookup
+              </a>
+              <a href="url-status-checker.html" class="menu-item">
+                <i data-lucide="globe"></i>
+                URL Live Status Checker
+              </a>
+              <a href="user-ip-display.html" class="menu-item">
+                <i data-lucide="map-pin-house"></i>
+                User IP Display
+              </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Advanced File Hash Generator</h1>
+                <p>Generate, verify, and compare cryptographic hashes for digital evidence integrity</p>
+            </div>
+
+            <div class="tool-intro">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i data-lucide="shield"></i>
+                        <h3>Multiple Algorithms</h3>
+                        <p>SHA-1, SHA-256, SHA-512</p>
+                    </div>
+                    <div class="feature-card">
+                        <i data-lucide="check-circle"></i>
+                        <h3>Hash Verification</h3>
+                        <p>Compare and verify file integrity</p>
+                    </div>
+                    <div class="feature-card">
+                        <i data-lucide="files"></i>
+                        <h3>Batch Processing</h3>
+                        <p>Process multiple files at once</p>
+                    </div>
+                    <div class="feature-card">
+                        <i data-lucide="download"></i>
+                        <h3>Export Results</h3>
+                        <p>Save as CSV for analysis</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hash-generator-container">
+                <div class="mode-selector">
+                    <button class="mode-button active" data-mode="generate">
+                        <i data-lucide="file-plus"></i>
+                        Generate Hash
+                    </button>
+                    <button class="mode-button" data-mode="verify">
+                        <i data-lucide="check-circle"></i>
+                        Verify Hash
+                    </button>
+                    <button class="mode-button" data-mode="batch">
+                        <i data-lucide="files"></i>
+                        Batch Process
+                    </button>
+                </div>
+
+                <div class="upload-section">
+                    <div class="upload-area" id="dropZone">
+                        <i data-lucide="upload-cloud"></i>
+                        <h3>Drag & Drop Files</h3>
+                        <p>Maximum file size: 100MB</p>
+                        <label for="fileInput" class="upload-button">
+                            Choose Files
+                            <input type="file" id="fileInput" multiple>
+                        </label>
+                    </div>
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-fill"></div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </div>
+
+                <div class="hash-options">
+                    <h3>Hash Algorithms</h3>
+                    <div class="algorithm-toggles">
+                        <label class="algorithm-toggle">
+                            <input type="checkbox" value="sha1">
+                            <span>SHA-1</span>
+                        </label>
+                        <label class="algorithm-toggle">
+                            <input type="checkbox" checked value="sha256">
+                            <span>SHA-256</span>
+                        </label>
+                        <label class="algorithm-toggle">
+                            <input type="checkbox" value="sha512">
+                            <span>SHA-512</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="verifySection" class="verify-section" style="display: none;">
+                    <h3>Hash Verification</h3>
+                    <div class="verify-input">
+                        <input type="text" id="verifyHash" placeholder="Enter hash to verify...">
+                        <select id="verifyAlgorithm">
+                            <option value="SHA-1">SHA-1</option>
+                            <option value="SHA-256">SHA-256</option>
+                            <option value="SHA-512">SHA-512</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="batchSection" class="batch-section" style="display: none;">
+                    <h3>Batch Processing</h3>
+                    <div class="batch-options">
+                        <label class="batch-option">
+                            <input type="checkbox" id="recursiveOption">
+                            <span>Process Folders Recursively</span>
+                        </label>
+                        <label class="batch-option">
+                            <input type="checkbox" id="exportOption" checked>
+                            <span>Export Results as CSV</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="results-section">
+                    <div class="results-header">
+                        <h3>Generated Hashes</h3>
+                        <button id="exportButton" class="export-button">
+                            <i data-lucide="download"></i>
+                            Export Results
+                        </button>
+                    </div>
+                    <div class="results-container" id="hashResults">
+                        <!-- Results will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="usage-guide">
+                <h2>How to Use</h2>
+                <div class="guide-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <h3>Select Mode</h3>
+                        <p>Choose between Generate Hash, Verify Hash, or Batch Process modes depending on your needs.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <h3>Upload Files</h3>
+                        <p>Drag and drop files or use the file picker to select the files you want to process.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <h3>Choose Algorithms</h3>
+                        <p>Select one or more hash algorithms to use for generating file hashes.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <h3>Export Results</h3>
+                        <p>Download the generated hashes in CSV format for documentation and further analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/police-auth-check.js"></script>
+    <script src="js/file-hash-generator.js"></script>
+    <script src="js/police-tool-dashboard.js"></script>
+</body>
+</html>

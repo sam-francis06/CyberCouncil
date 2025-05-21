@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/police-dashboard.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <style>
+      .profile-section {
+        padding: 2rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 12rem); /* Keep this for larger screens */
+        perspective: 1000px;
+      }
+
+      .profile-card-container {
+        max-width: 400px; /* Default max-width for larger screens */
+        width: 100%;
+        background: var(--bg-primary);
+        border-radius: 1.5rem;
+        box-shadow: var(--shadow-md);
+        overflow: hidden;
+        padding-bottom: 1rem;
+        border: 1px solid var(--border-color);
+        transform-style: preserve-3d;
+        animation: cardEntrance 0.8s ease-out forwards;
+        box-sizing: border-box; /* Ensure padding is included in width */
+      }
+
+      @keyframes cardEntrance {
+        0% {
+          opacity: 0;
+          transform: translateY(40px) rotateX(-10deg);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) rotateX(0);
+        }
+      }
+
+      .profile-avatar {
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(135deg, var(--primary-color), #2563eb);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: -60px;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: white;
+        box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3);
+        position: relative;
+        z-index: 2;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .profile-avatar:hover {
+        transform: scale(1.05) translateY(-5px);
+        box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.4);
+      }
+
+      .profile-header {
+        background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        height: 100px;
+        margin-bottom: 70px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .profile-header::before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+        animation: rotate 20s linear infinite;
+      }
+
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      .profile-info {
+        padding: 0 1.5rem;
+        text-align: center;
+        opacity: 0;
+        animation: fadeInUp 0.6s ease-out 0.4s forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .profile-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+        letter-spacing: -0.025em;
+        background: linear-gradient(135deg, var(--text-primary), var(--primary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .profile-meta {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.8;
+      }
+
+      .profile-detail {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        animation: slideIn 0.5s ease-out backwards;
+      }
+
+      .profile-detail:nth-child(1) { animation-delay: 0.6s; }
+      .profile-detail:nth-child(2) { animation-delay: 0.7s; }
+      .profile-detail:nth-child(3) { animation-delay: 0.8s; }
+      .profile-detail:nth-child(4) { animation-delay: 0.9s; }
+
+      .profile-detail:hover {
+        background-color: rgba(59, 130, 246, 0.05);
+        transform: translateX(5px);
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .detail-label {
+        color: var(--text-primary);
+        font-weight: 500;
+        opacity: 0.8;
+      }
+
+      .detail-value {
+        color: var(--text-secondary);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .profile-detail:hover .detail-value {
+        color: var(--primary-color);
+      }
+
+      #edit-avatar-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: white;
+        border: none;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: scale(0.8);
+      }
+
+      .profile-avatar:hover #edit-avatar-btn {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .logout-button {
+        display: block;
+        width: calc(100% - 3rem);
+        margin: 1rem auto 0;
+        padding: 0.875rem 0;
+        background: transparent;
+        color: #dc2626;
+        border: 1px solid rgba(220, 38, 38, 0.2);
+        border-radius: 2rem;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-align: center;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .logout-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, transparent, rgba(220, 38, 38, 0.1), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.6s;
+      }
+
+      .logout-button:hover {
+        background: #dc2626;
+        color: white;
+        border-color: #dc2626;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+      }
+
+      .logout-button:hover::before {
+        transform: translateX(100%);
+      }
+
+      @media (max-width: 768px) {
+        .profile-card-container {
+          max-width: 360px; /* Default for smaller screens */
+          width: 95%;
+          margin: 0 auto;
+          box-sizing: border-box;
+        }
+
+        .profile-section {
+          padding: 1rem;
+          perspective: none;
+          min-height: auto;
+        }
+
+        .profile-info {
+            padding: 0 1rem;
+        }
+
+        .profile-detail {
+            padding: 0.8rem 1rem;
+        }
+
+        .logout-button {
+            width: calc(100% - 2rem);
+            margin: 1rem auto 0;
+        }
+      }
+
+      /* Added media query for 480px screens */
+      @media (max-width: 480px) {
+        .profile-section {
+          padding: 1.5rem; /* Slightly more padding */
+        }
+        .profile-card-container {
+          max-width: 420px; /* Make card container wider */
+          width: 95%; /* Ensure it doesn't exceed screen width with padding */
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .profile-card-container,
+        .profile-info,
+        .profile-detail,
+        .profile-header::before,
+        .logout-button::before {
+          animation: none;
+          transition: none;
+        }
+
+        .profile-detail:hover {
+          transform: none;
+        }
+      }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+      <div class="nav-left">
+        <div class="logo">
+          <i data-lucide="shield"></i>
+          <span>Cyber Council</span>
+        </div>
+      </div>
+      <div class="nav-right">
+        <a href="police-dashboard.html" class="nav-link">Dashboard</a>
+        <a href="case-management.html" class="nav-link">Case Management</a>
+        <a href="police-tool-dashboard.html" class="nav-link">AI Tools</a>
+        <a href="cyber-laws.html" class="nav-link">Cyber Laws</a>
+        <a href="police-profile.html" class="user-profile active">
+          <i class="ph ph-user"></i>
+        </a>
+        <button class="home-icon">
+          <i class="ph ph-house-line"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-dropdown">
+      <a href="police-dashboard.html" class="mobile-nav-link">
+        <i class="ph ph-gauge"></i>
+        Dashboard
+      </a>
+      <a href="case-management.html" class="mobile-nav-link">
+        <i class="ph ph-folders"></i>
+        Case Management
+      </a>
+      <a href="police-tool-dashboard.html" class="mobile-nav-link">
+        <i class="ph ph-wrench"></i>
+        Tools
+      </a>
+      
+      <a href="cyber-laws.html" class="mobile-nav-link">
+        <i class="ph ph-gavel"></i>
+        Cyber Laws
+      </a>
+      <a href="police-profile.html" class="mobile-nav-link active">
+        <i class="ph ph-user"></i>
+        Profile
+      </a>
+    </div>
+
+    <div class="container">
+      <main class="main-content">
+        <div class="dashboard-header">
+          <h1>Officer Profile</h1>
+          <p>Manage your account information and preferences</p>
+        </div>
+
+        <div class="profile-section">
+          <div class="profile-card-container">
+            <div class="profile-header"></div>
+            <div class="profile-avatar" id="profile-avatar" style="position: relative">
+              <img id="profile-image" src="" alt="Profile Image" style="display: none; width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
+              <span id="avatar-initials">PO</span>
+
+              <button id="edit-avatar-btn" style="position: absolute; bottom: 8px; right: 8px; background: #fff; border: none; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                <i class="ph ph-pencil"></i>
+              </button>
+
+              <input type="file" id="avatar-file-input" accept="image/*" style="display: none" />
+            </div>
+
+            <div class="profile-info">
+              <div class="profile-name" id="user-name">Officer Name</div>
+              <div class="profile-meta">
+                <span id="user-email">officer@police.gov</span>
+              </div>
+            </div>
+
+            <div class="profile-details">
+              <div class="profile-detail">
+                <div class="detail-label">ID</div>
+                <div class="detail-value" id="user-id">POL-12345</div>
+              </div>
+              <div class="profile-detail">
+                <div class="detail-label">Department</div>
+                <div class="detail-value" id="user-department">Cyber Crime</div>
+              </div>
+              <div class="profile-detail">
+                <div class="detail-label">Rank</div>
+                <div class="detail-value" id="user-rank">Inspector</div>
+              </div>
+              <div class="profile-detail">
+                <div class="detail-label">Joined</div>
+                <div class="detail-value" id="user-joined">Jan 15, 2023</div>
+              </div>
+            </div>
+            <a href="index.html" class="logout-button">
+              <span class="logout-icon" style="display: inline-flex; align-items: center">
+                <svg class="door-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff0004" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5em">
+                  <rect x="6" y="3" width="12" height="18" rx="2" ry="2" fill="#fff" />
+                  <rect class="door-leaf" x="6" y="3" width="6" height="18" rx="2" ry="2" fill="#ff0004" style="transition: transform 0.4s" />
+                  <circle cx="8.5" cy="12" r="1" fill="#fff" />
+                </svg>
+                Logout
+              </span>
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Initialize Supabase
+      const supabaseUrl = "https://arhsghqcdocpquqkzxwh.supabase.co";
+      const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFyaHNnaHFjZG9jcHF1cWt6eHdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU1MDU4NTUsImV4cCI6MjA2MTA4MTg1NX0.J80PQNykHjA5zAtffWDx0TRjd98fIX0cP_bzHFa5CK8";
+      const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+  
+      // Get the logged-in user's userid from localStorage (set this after login)
+      const userId = localStorage.getItem("police_userid") || "default_user";
+  
+      async function loadProfile() {
+        if (!userId || userId === "default_user") {
+          console.warn("No user logged in!");
+          return;
+        }
+        
+        // Fetch profile from Supabase
+        const { data, error } = await supabase
+          .from("police_users")
+          .select("name, userid, email, rank, department, joined")
+          .eq("userid", userId)
+          .single();
+  
+        if (error || !data) {
+          console.error("Error fetching profile:", error);
+          return;
+        }
+  
+        // Populate the profile fields
+        document.getElementById("user-name").textContent = data.name || "";
+        document.getElementById("user-id").textContent = data.userid || "";
+        document.getElementById("user-email").textContent = data.email || "";
+        document.getElementById("user-rank").textContent = data.rank || "";
+        document.getElementById("user-department").textContent = data.department || "";
+        document.getElementById("user-joined").textContent = data.joined || "";
+        
+        // Set initials from name
+        const initials = data.name ? data.name.split(' ').map(name => name[0]).join('').toUpperCase() : "PO";
+        document.getElementById("avatar-initials").textContent = initials;
+        
+        // Create a unique key for this user's profile image
+        const profileImageKey = `police_profile_image_${userId}`;
+        
+        // Get profile image path from localStorage
+        const savedImagePath = localStorage.getItem(profileImageKey);
+        
+        if (savedImagePath) {
+          const { data: publicUrlData } = supabase.storage
+            .from('avatars')
+            .getPublicUrl(savedImagePath);
+            
+          if (publicUrlData && publicUrlData.publicUrl) {
+            const profileImage = document.getElementById('profile-image');
+            // Check if image exists by making a HEAD request
+            fetch(publicUrlData.publicUrl, { method: 'HEAD' })
+              .then(response => {
+                if (response.ok) {
+                  profileImage.src = publicUrlData.publicUrl;
+                  profileImage.style.display = 'block';
+                  document.getElementById('avatar-initials').style.display = 'none';
+                }
+              })
+              .catch(err => console.log('Image not found, using initials'));
+          }
+        }
+      }
+
+      // Initialize Lucide icons
+      lucide.createIcons();
+      
+      // Mobile menu toggle
+      const homeIcon = document.querySelector('.home-icon');
+      const mobileDropdown = document.querySelector('.mobile-dropdown');
+      
+      homeIcon.addEventListener('click', () => {
+          mobileDropdown.classList.toggle('active');
+      });
+      
+      // Profile functionality
+      document.addEventListener('DOMContentLoaded', function() {
+          // Load profile data
+          loadProfile();
+          
+          // Avatar handling
+          const avatarFileInput = document.getElementById('avatar-file-input');
+          const editAvatarBtn = document.getElementById('edit-avatar-btn');
+          const profileImage = document.getElementById('profile-image');
+          const avatarInitials = document.getElementById('avatar-initials');
+          
+          // Edit avatar button click
+          editAvatarBtn.addEventListener('click', function() {
+              avatarFileInput.click();
+          });
+          
+          // File input change
+          avatarFileInput.addEventListener('change', async function() {
+              if (this.files && this.files[0]) {
+                  const file = this.files[0];
+                  
+                  if (!file.type.startsWith('image/')) {
+                      alert('Only image files allowed.');
+                      return;
+                  }
+                  
+                  if (file.size > 2 * 1024 * 1024) {
+                      alert('Max 2MB size allowed.');
+                      return;
+                  }
+                  
+                  if (!userId || userId === "default_user") {
+                      alert("You must be logged in to upload a profile image.");
+                      return;
+                  }
+                  
+                  try {
+                      // Use userId as unique identifier for the file
+                      const fileName = `${userId.replace(/[^a-zA-Z0-9]/g, '_')}.jpg`;
+                      const uploadPath = `police/${fileName}`; // Store in avatars/police folder
+                      
+                      // Get the previous image path from localStorage
+                      const profileImageKey = `police_profile_image_${userId}`;
+                      const previousImagePath = localStorage.getItem(profileImageKey);
+                      
+                      // If there was a previous image, delete it first
+                      if (previousImagePath) {
+                          try {
+                              const { error: deleteError } = await supabase.storage
+                                  .from('avatars')
+                                  .remove([previousImagePath]);
+                              
+                              if (deleteError) {
+                                  console.warn('Failed to delete previous image:', deleteError);
+                                  // Continue with upload even if delete fails
+                              } else {
+                                  console.log('Previous image deleted successfully');
+                              }
+                          } catch (deleteErr) {
+                              console.warn('Error during delete operation:', deleteErr);
+                              // Continue with upload even if delete fails
+                          }
+                      }
+                      
+                      // Upload to Supabase Storage
+                      const { error: uploadError, data: uploadData } = await supabase.storage
+                          .from('avatars')
+                          .upload(uploadPath, file, {
+                              cacheControl: '3600',
+                              upsert: true
+                          });
+                      
+                      if (uploadError) {
+                          console.error('Upload error details:', uploadError);
+                          alert(`Upload failed: ${uploadError.message}`);
+                          return;
+                      }
+                      
+                      console.log('Upload successful:', uploadData);
+                      
+                      // Save the image path to localStorage with user-specific key
+                      localStorage.setItem(profileImageKey, uploadPath);
+                      
+                      // Get the public URL
+                      const { data: newUrlData } = supabase.storage
+                          .from('avatars')
+                          .getPublicUrl(uploadPath);
+                      
+                      if (newUrlData && newUrlData.publicUrl) {
+                          const cacheBuster = `?t=${new Date().getTime()}`;
+                          profileImage.src = newUrlData.publicUrl + cacheBuster;
+                          profileImage.style.display = 'block';
+                          avatarInitials.style.display = 'none';
+                          alert('Profile updated!');
+                      }
+                  } catch (err) {
+                      console.error('Unexpected error:', err);
+                      alert('An unexpected error occurred. Please try again.');
+                  }
+              }
+          });
+      });
+  </script>
+  <script src="js/police-auth-check.js"></script>
+</body>
+</html>

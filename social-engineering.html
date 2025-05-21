@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tool-dashboard.css">
+    <link rel="stylesheet" href="css/social-engineering.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i class="ph ph-list"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="tool-dashboard.html" class="nav-link">Tools</a>
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="user-cyber-laws.html" class="nav-link">Cyber Laws</a>
+            <a href="profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-dropdown">
+        <a href="dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-gauge"></i>
+            Dashboard
+        </a>
+        <a href="tool-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-wrench"></i>
+            Tools
+        </a>
+        <a href="reports.html" class="mobile-nav-link">
+            <i class="ph ph-chart-pie-slice"></i>
+            Reports
+        </a>
+        <a href="user-cyber-laws.html" class="mobile-nav-link">
+            <i class="ph ph-gavel"></i>
+            Cyber Laws
+        </a>
+        <a href="profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>MAIN MENU</h3>
+                <a href="tool-dashboard.html" class="menu-item">
+                    <i class="ph ph-squares-four"></i>
+                    Dashboard
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>SECURITY TOOLS</h3>
+                <a href="phishing-detection.html" class="menu-item">
+                    <i class="ph ph-fish"></i>
+                    Phishing Detection
+                </a>
+                
+                <a href="wifi-security.html" class="menu-item">
+                    <i class="ph ph-wifi-high"></i>
+                    WiFi Security
+                </a>
+                <a href="social-engineering.html" class="menu-item active">
+                    <i class="ph ph-users-three"></i>
+                    Social Engineering
+                </a>
+                <a href="password-checker.html" class="menu-item">
+                    <i class="ph ph-password"></i>
+                    Password Strength
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>ANALYSIS TOOLS</h3>
+                
+                <a href="privacy-analyzer.html" class="menu-item">
+                    <i class="ph ph-shield-check"></i>
+                    Privacy Analysis
+                </a>
+                <a href="malware.html" class="menu-item">
+                    <i class="ph ph-virus"></i>
+                    Malware Scanner
+                </a>
+                <a href="image-metadata.html" class="menu-item">
+                    <i class="ph ph-image"></i>
+                    Image Metadata Extractor
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1 class="main-title">Social Engineering Detection</h1>
+                <p>Analyze messages and communications for potential social engineering attacks</p>
+            </div>
+
+            <div class="tool-container">
+                <div class="tool-section">
+                    <div class="input-section">
+                        <div class="section-header" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                            <div class="social-engineering-icon">
+                                <i class="ph ph-envelope"></i>
+                            </div>
+                            <h2>Message Analysis</h2>
+                        </div>
+                        <p class="section-description">Paste an email, message, or communication to analyze for social engineering tactics.</p>
+                        
+                        <div class="input-group">
+                            <textarea id="message-input" placeholder="Paste the message content here..."></textarea>
+                            <div class="input-controls">
+                                <button id="clear-btn" class="secondary-button">
+                                    <i class="ph ph-eraser"></i>
+                                    Clear
+                                </button>
+                                <button id="analyze-btn" class="primary-button">
+                                    <i class="ph ph-magnifying-glass"></i>
+                                    Analyze Message
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="sample-messages">
+                            <h3>Sample Messages</h3>
+                            <div class="sample-buttons">
+                                <button class="sample-btn" data-sample="urgent">Urgency Example</button>
+                                <button class="sample-btn" data-sample="authority">Authority Example</button>
+                                <button class="sample-btn" data-sample="fear">Fear-based Example</button>
+                                <button class="sample-btn" data-sample="reward">Reward Example</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="results-section" class="results-section hidden">
+                        <div class="results-header">
+                            <h2>Analysis Results</h2>
+                            <div class="risk-indicator">
+                                <span class="risk-label">Risk Level:</span>
+                                <div id="risk-meter" class="risk-meter">
+                                    <div id="risk-level" class="risk-level"></div>
+                                </div>
+                                <span id="risk-percentage" class="risk-percentage">0%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="results-content">
+                            <div class="summary-card">
+                                <h3>Summary</h3>
+                                <p id="analysis-summary"></p>
+                            </div>
+                            
+                            <div class="tactics-detected">
+                                <h3>Tactics Detected</h3>
+                                <div id="tactics-list" class="tactics-list"></div>
+                            </div>
+                            
+                            <div class="highlighted-message">
+                                <h3>Highlighted Analysis</h3>
+                                <div id="highlighted-content" class="highlighted-content"></div>
+                            </div>
+                            
+                            <div class="recommendations">
+                                <h3>Recommendations</h3>
+                                <ul id="recommendations-list" class="recommendations-list"></ul>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button id="download-pdf-btn" class="pdf-button">
+                                <i class="ph ph-file-pdf"></i>
+                                Download PDF Report
+                            </button>
+                            <button id="save-report-btn" class="secondary-button">
+                                <i class="ph ph-floppy-disk"></i>
+                                Save Report
+                            </button>
+                            <button id="new-analysis-btn" class="primary-button">
+                                <i class="ph ph-plus"></i>
+                                New Analysis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <div class="info-card">
+                        <div class="info-header">
+                            <i class="ph ph-info"></i>
+                            <h3>What is Social Engineering?</h3>
+                        </div>
+                        <p>Social engineering is the psychological manipulation of people into performing actions or divulging confidential information. It's a type of security attack that relies on human interaction and often involves tricking people into breaking normal security procedures.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-header">
+                            <i class="ph ph-warning"></i>
+                            <h3>Common Tactics</h3>
+                        </div>
+                        <ul class="tactics-info-list">
+                            <li><strong>Urgency:</strong> Creating time pressure to force quick decisions</li>
+                            <li><strong>Authority:</strong> Impersonating figures of authority</li>
+                            <li><strong>Scarcity:</strong> Implying limited availability</li>
+                            <li><strong>Social Proof:</strong> Suggesting others have complied</li>
+                            <li><strong>Familiarity:</strong> Pretending to know you or someone you know</li>
+                            <li><strong>Fear:</strong> Using threats or warnings</li>
+                            <li><strong>Greed:</strong> Offering rewards or opportunities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-header">
+                            <i class="ph ph-shield-check"></i>
+                            <h3>Protection Tips</h3>
+                        </div>
+                        <ul class="protection-tips-list">
+                            <li>Verify requests through official channels</li>
+                            <li>Never provide sensitive information in response to unsolicited communications</li>
+                            <li>Be suspicious of urgent requests</li>
+                            <li>Check email addresses carefully</li>
+                            <li>Don't click on suspicious links</li>
+                            <li>Use multi-factor authentication</li>
+                            <li>Keep software and systems updated</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <div id="save-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Save Analysis Report</h2>
+                <button id="close-modal" class="close-button">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label for="report-name">Report Name</label>
+                    <input type="text" id="report-name" placeholder="Enter a name for this report">
+                </div>
+                <div class="input-group">
+                    <label for="report-notes">Notes (Optional)</label>
+                    <textarea id="report-notes" placeholder="Add any additional notes about this analysis"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-save" class="secondary-button">Cancel</button>
+                <button id="confirm-save" class="primary-button">
+                    <i class="ph ph-check"></i>
+                    Save Report
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/tool-dashboard.js"></script>
+    <script src="js/social-engineering.js"></script>
+</body>
+</html>

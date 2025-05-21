@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tool-dashboard.css">
+    <link rel="stylesheet" href="css/reports.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i class="ph ph-list"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="tool-dashboard.html" class="nav-link">Tools</a>
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="user-cyber-laws.html" class="nav-link">Cyber Laws</a>
+            
+            <a href="profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-dropdown">
+        <a href="dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-gauge"></i>
+            Dashboard
+        </a>
+        <a href="tool-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-wrench"></i>
+            Tools
+        </a>
+        <a href="reports.html" class="mobile-nav-link">
+            <i class="ph ph-chart-pie-slice"></i>
+            Reports
+        </a>
+        <a href="user-cyber-laws.html" class="mobile-nav-link">
+            <i class="ph ph-gavel"></i>
+            Cyber Laws
+        </a>
+        <a href="profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>REPORTS</h3>
+                <a href="reports.html" class="menu-item active">
+                    <i class="ph ph-file-text"></i>
+                    File Report
+                </a>
+                <a href="report-history.html" class="menu-item">
+                    <i class="ph ph-clock-clockwise"></i>
+                    Report History
+                </a>
+                <a href="report-statistics.html" class="menu-item">
+                    <i class="ph ph-chart-line-up"></i>
+                    Statistics
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Report Cyber Crime</h1>
+                <p>Submit detailed information about cyber crime incidents for investigation</p>
+            </div>
+
+            <form class="report-form">
+                <div class="form-section">
+                    <h2>Incident Details</h2>
+                    
+                    <div class="form-group">
+                        <label for="incident-type">Type of Incident</label>
+                        <select id="incident-type" required>
+                            <option value="">Select incident type</option>
+                            <option value="phishing">Phishing Attack</option>
+                            <option value="malware">Malware/Ransomware</option>
+                            <option value="fraud">Online Fraud</option>
+                            <option value="identity-theft">Identity Theft</option>
+                            <option value="cyberbullying">Cyberbullying</option>
+                            <option value="hacking">Hacking Attempt</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="incident-date">Date of Incident</label>
+                        <input type="date" id="incident-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="incident-description">Detailed Description</label>
+                        <textarea id="incident-description" rows="5" placeholder="Provide a detailed description of the incident..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Evidence</h2>
+                    
+                    <div class="form-group">
+                        <label for="evidence-files">Upload Evidence</label>
+                        <div class="file-upload">
+                            <input type="file" id="evidence-files" multiple>
+                            <div class="upload-placeholder">
+                                <i class="ph ph-upload-simple"></i>
+                                <span>Drop files here or click to upload</span>
+                            </div>
+                        </div>
+                        <p class="help-text">Accepted formats: PDF, JPG, PNG, DOC (Max 10MB)</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="urls">Relevant URLs</label>
+                        <input type="text" id="urls" placeholder="Enter URLs related to the incident">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Additional Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="financial-impact">Financial Impact (if any)</label>
+                        <input type="number" id="financial-impact" placeholder="Enter amount in INR">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reported-authorities">Already Reported to Authorities?</label>
+                        <div class="radio-group">
+                            <label class="radio">
+                                <input type="radio" name="reported" value="yes">
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="reported" value="no">
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="primary-button">
+                        <i class="ph ph-paper-plane-right"></i>
+                        Submit Report
+                    </button>
+                    <button type="reset" class="secondary-button">
+                        <i class="ph ph-x"></i>
+                        Clear Form
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/tool-dashboard.js"></script>
+    <script src="js/reports.js"></script>
+</body>
+</html>

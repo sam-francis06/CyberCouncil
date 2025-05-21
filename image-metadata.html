@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Metadata Extractor - Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tool-dashboard.css">
+    <link rel="stylesheet" href="css/image-metadata.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i class="ph ph-list"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="tool-dashboard.html" class="nav-link">Tools</a>
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="user-cyber-laws.html" class="nav-link">Cyber Laws</a>
+            <a href="profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-dropdown">
+        <a href="dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-gauge"></i>
+            Dashboard
+        </a>
+        <a href="tool-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-wrench"></i>
+            Tools
+        </a>
+        <a href="reports.html" class="mobile-nav-link">
+            <i class="ph ph-chart-pie-slice"></i>
+            Reports
+        </a>
+        <a href="user-cyber-laws.html" class="mobile-nav-link">
+            <i class="ph ph-gavel"></i>
+            Cyber Laws
+        </a>
+        <a href="profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+    </div>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>MAIN MENU</h3>
+                <a href="tool-dashboard.html" class="menu-item">
+                    <i class="ph ph-squares-four"></i>
+                    Dashboard
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>SECURITY TOOLS</h3>
+                <a href="phishing-detection.html" class="menu-item">
+                    <i class="ph ph-fish"></i>
+                    Phishing Detection
+                </a>
+                <a href="wifi-security.html" class="menu-item">
+                    <i class="ph ph-wifi-high"></i>
+                    WiFi Security
+                </a>
+                <a href="social-engineering.html" class="menu-item">
+                    <i class="ph ph-users-three"></i>
+                    Social Engineering
+                </a>
+                <a href="password-checker.html" class="menu-item">
+                    <i class="ph ph-password"></i>
+                    Password Strength
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>ANALYSIS TOOLS</h3>
+                <a href="privacy-analyzer.html" class="menu-item">
+                    <i class="ph ph-shield-check"></i>
+                    Privacy Analysis
+                </a>
+                <a href="malware.html" class="menu-item">
+                    <i class="ph ph-virus"></i>
+                    Malware Scanner
+                </a>
+                <a href="image-metadata.html" class="menu-item active">
+                    <i class="ph ph-image"></i>
+                    Image Metadata Extractor
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Image Metadata Extractor</h1>
+                <p>Advanced EXIF metadata analysis with privacy risk detection and metadata removal capabilities</p>
+            </div>
+
+            <div class="metadata-container">
+                <div class="upload-section">
+                    <div class="upload-area" id="dropZone">
+                        <i class="ph ph-image-square"></i>
+                        <h3>Drag & Drop Image Here</h3>
+                        <p>or</p>
+                        <label for="fileInput" class="upload-button">
+                            Choose File
+                            <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                        </label>
+                        <p class="file-types">Supported formats: JPG, PNG, TIFF, HEIC</p>
+                    </div>
+                </div>
+
+                <div class="batch-preview" id="batchPreview" style="display: none;">
+                    <div class="batch-header">
+                        <h3>Batch Processing</h3>
+                        <div class="batch-actions">
+                            <button class="batch-button" id="analyzeAllButton">
+                                <i class="ph ph-play"></i>
+                                Analyze All
+                            </button>
+                            <button class="batch-button" id="clearAllButton">
+                                <i class="ph ph-x"></i>
+                                Clear All
+                            </button>
+                        </div>
+                    </div>
+                    <div class="batch-grid" id="batchGrid"></div>
+                </div>
+
+                <div class="preview-section" id="previewSection" style="display: none;">
+                    <div class="preview-header">
+                        <h3>Image Analysis</h3>
+                        <div class="preview-actions">
+                            <button class="action-button" id="removeMetadataButton">
+                                <i class="ph ph-eraser"></i>
+                                Remove Metadata
+                            </button>
+                            <button class="action-button" id="downloadCleanButton">
+                                <i class="ph ph-download"></i>
+                                Download Clean Copy
+                            </button>
+                            <button class="clear-button" id="clearButton">
+                                <i class="ph ph-x"></i>
+                                Clear
+                            </button>
+                        </div>
+                    </div>
+                    <div class="preview-content">
+                        <div class="image-container">
+                            <img id="imagePreview" src="" alt="Preview">
+                            <div class="image-overlay" id="imageOverlay"></div>
+                        </div>
+                        <div class="image-info">
+                            <div class="info-header">
+                                <h4>Image Information</h4>
+                                <span class="risk-score" id="riskScore">Risk Score: 0</span>
+                            </div>
+                            <div class="info-grid" id="basicInfo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metadata-section" id="metadataSection" style="display: none;">
+                    <div class="metadata-header">
+                        <h3>Detailed Metadata Analysis</h3>
+                        <div class="export-options">
+                            <button class="export-button" id="exportJsonButton">
+                                <i class="ph ph-file-json"></i>
+                                Export JSON
+                            </button>
+                            <button class="export-button" id="exportCsvButton">
+                                <i class="ph ph-file-csv"></i>
+                                Export CSV
+                            </button>
+                            <button class="export-button" id="exportPdfButton">
+                                <i class="ph ph-file-pdf"></i>
+                                Export PDF
+                            </button>
+                        </div>
+                    </div>
+                    <div class="metadata-tabs">
+                        <button class="tab-button active" data-tab="basic">Basic Info</button>
+                        <button class="tab-button" data-tab="camera">Camera Data</button>
+                        <button class="tab-button" data-tab="location">Location Data</button>
+                        <button class="tab-button" data-tab="security">Security Analysis</button>
+                    </div>
+                    <div class="metadata-content" id="metadataContent">
+                        <div class="tab-content active" id="basicTab">
+                            <div class="metadata-grid" id="metadataGrid"></div>
+                        </div>
+                        <div class="tab-content" id="cameraTab"></div>
+                        <div class="tab-content" id="locationTab"></div>
+                        <div class="tab-content" id="securityTab"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/tool-dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/piexifjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver"></script>
+    <script src="js/image-metadata.js"></script>
+    
+</body>
+</html>

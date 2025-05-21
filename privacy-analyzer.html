@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tool-dashboard.css">
+    <link rel="stylesheet" href="css/privacy-analyzer.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i class="ph ph-list"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="tool-dashboard.html" class="nav-link">Tools</a>
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="user-cyber-laws.html" class="nav-link">Cyber Laws</a>
+            <a href="profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-dropdown">
+        <a href="dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-gauge"></i>
+            Dashboard
+        </a>
+        <a href="tool-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-wrench"></i>
+            Tools
+        </a>
+        <a href="reports.html" class="mobile-nav-link">
+            <i class="ph ph-chart-pie-slice"></i>
+            Reports
+        </a>
+        <a href="user-cyber-laws.html" class="mobile-nav-link">
+            <i class="ph ph-gavel"></i>
+            Cyber Laws
+        </a>
+        <a href="profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>MAIN MENU</h3>
+                <a href="tool-dashboard.html" class="menu-item">
+                    <i class="ph ph-squares-four"></i>
+                    Dashboard
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>SECURITY TOOLS</h3>
+                <a href="phishing-detection.html" class="menu-item">
+                    <i class="ph ph-fish"></i>
+                    Phishing Detection
+                </a>
+                
+                <a href="wifi-security.html" class="menu-item">
+                    <i class="ph ph-wifi-high"></i>
+                    WiFi Security
+                </a>
+                <a href="social-engineering.html" class="menu-item">
+                    <i class="ph ph-users-three"></i>
+                    Social Engineering
+                </a>
+                <a href="password-checker.html" class="menu-item">
+                    <i class="ph ph-password"></i>
+                    Password Strength
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>ANALYSIS TOOLS</h3>
+                
+                <a href="privacy-analyzer.html" class="menu-item active">
+                    <i class="ph ph-shield-check"></i>
+                    Privacy Analysis
+                </a>
+                <a href="malware.html" class="menu-item">
+                    <i class="ph ph-virus"></i>
+                    Malware Scanner
+                </a>
+                <a href="image-metadata.html" class="menu-item">
+                    <i class="ph ph-image"></i>
+                    Image Metadata Extractor
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Website Privacy Analyzer(Simulation)</h1>
+                <p>Check any website for privacy and security risks with our easy-to-use tool</p>
+            </div>
+
+            <div class="analyzer-container">
+                <div class="analyzer-input-section">
+                    <div class="input-container">
+                        <div class="url-input-wrapper">
+                            <i class="ph ph-globe"></i>
+                            <input type="text" id="websiteUrl" placeholder="Enter website URL (e.g., example.com)" class="url-input">
+                        </div>
+                        <button id="analyzeButton" class="analyze-button">
+                            <i class="ph ph-magnifying-glass"></i>
+                            Analyze Website
+                        </button>
+                    </div>
+                    <div class="popular-sites">
+                        <span>Popular sites:</span>
+                        <button class="popular-site-button" data-url="facebook.com">Facebook</button>
+                        <button class="popular-site-button" data-url="google.com">Google</button>
+                        <button class="popular-site-button" data-url="amazon.com">Amazon</button>
+                        <button class="popular-site-button" data-url="twitter.com">Twitter</button>
+                    </div>
+                </div>
+
+                <div id="loadingSection" class="loading-section">
+                    <div class="loading-animation">
+                        <i class="ph ph-spinner ph-spin"></i>
+                    </div>
+                    <h3>Analyzing Website Privacy...</h3>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-status">Checking security certificates...</div>
+                    </div>
+                    <div class="scan-steps">
+                        <div class="scan-step active" data-step="1">
+                            <i class="ph ph-lock"></i>
+                            <span>SSL</span>
+                        </div>
+                        <div class="scan-step" data-step="2">
+                            <i class="ph ph-cookie"></i>
+                            <span>Cookies</span>
+                        </div>
+                        <div class="scan-step" data-step="3">
+                            <i class="ph ph-eye"></i>
+                            <span>Trackers</span>
+                        </div>
+                        <div class="scan-step" data-step="4">
+                            <i class="ph ph-info"></i>
+                            <span>WHOIS</span>
+                        </div>
+                        <div class="scan-step" data-step="5">
+                            <i class="ph ph-prohibit"></i>
+                            <span>Blacklist</span>
+                        </div>
+                        <div class="scan-step" data-step="6">
+                            <i class="ph ph-file-text"></i>
+                            <span>Policy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="resultsSection" class="results-section">
+                    <div class="results-header">
+                        <div class="website-info">
+                            <div class="website-favicon">
+                                <i class="ph ph-globe"></i>
+                            </div>
+                            <div class="website-details">
+                                <h2 id="resultDomain">example.com</h2>
+                                <span id="resultUrl">https://www.example.com</span>
+                            </div>
+                        </div>
+                        <div class="overall-score">
+                            <div class="score-circle">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg" d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path id="scoreCircle" class="circle" stroke-dasharray="0, 100" d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <text x="18" y="20.35" class="score-text">0%</text>
+                                </svg>
+                            </div>
+                            <span>Privacy Score</span>
+                        </div>
+                    </div>
+
+                    <div class="results-summary">
+                        <div class="summary-item good">
+                            <i class="ph ph-check-circle"></i>
+                            <span id="goodCount">0</span>
+                            <span>Good</span>
+                        </div>
+                        <div class="summary-item warning">
+                            <i class="ph ph-warning"></i>
+                            <span id="warningCount">0</span>
+                            <span>Concerns</span>
+                        </div>
+                        <div class="summary-item bad">
+                            <i class="ph ph-x-circle"></i>
+                            <span id="badCount">0</span>
+                            <span>Issues</span>
+                        </div>
+                    </div>
+
+                    <div class="results-grid">
+                        <!-- SSL Certificate -->
+                        <div class="result-card" id="sslCard">
+                            <div class="result-header">
+                                <div class="result-icon">
+                                    <i class="ph ph-lock"></i>
+                                </div>
+                                <h3>Security Certificate</h3>
+                                <div class="result-status pending">
+                                    <i class="ph ph-clock"></i>
+                                    <span>Checking...</span>
+                                </div>
+                            </div>
+                            <div class="result-content">
+                                <div class="result-item">
+                                    <span class="item-label">HTTPS Status:</span>
+                                    <span class="item-value" id="httpsStatus">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Certificate:</span>
+                                    <span class="item-value" id="certificateStatus">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Expiration:</span>
+                                    <span class="item-value" id="certificateExpiry">--</span>
+                                </div>
+                            </div>
+                            <div class="result-recommendations" id="sslRecommendations"></div>
+                        </div>
+
+                        <!-- Cookies -->
+                        <div class="result-card" id="cookiesCard">
+                            <div class="result-header">
+                                <div class="result-icon">
+                                    <i class="ph ph-cookie"></i>
+                                </div>
+                                <h3>Cookies</h3>
+                                <div class="result-status pending">
+                                    <i class="ph ph-clock"></i>
+                                    <span>Checking...</span>
+                                </div>
+                            </div>
+                            <div class="result-content">
+                                <div class="result-item">
+                                    <span class="item-label">Total Cookies:</span>
+                                    <span class="item-value" id="totalCookies">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Tracking Cookies:</span>
+                                    <span class="item-value" id="trackingCookies">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Third-Party:</span>
+                                    <span class="item-value" id="thirdPartyCookies">--</span>
+                                </div>
+                            </div>
+                            <div class="cookie-chart">
+                                <canvas id="cookieChart" width="150" height="150"></canvas>
+                            </div>
+                            <div class="result-recommendations" id="cookiesRecommendations"></div>
+                        </div>
+
+                        <!-- Trackers -->
+                        <div class="result-card" id="trackersCard">
+                            <div class="result-header">
+                                <div class="result-icon">
+                                    <i class="ph ph-eye"></i>
+                                </div>
+                                <h3>Trackers</h3>
+                                <div class="result-status pending">
+                                    <i class="ph ph-clock"></i>
+                                    <span>Checking...</span>
+                                </div>
+                            </div>
+                            <div class="result-content">
+                                <div class="result-item">
+                                    <span class="item-label">Total Trackers:</span>
+                                    <span class="item-value" id="totalTrackers">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Ad Trackers:</span>
+                                    <span class="item-value" id="adTrackers">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Analytics:</span>
+                                    <span class="item-value" id="analyticsTrackers">--</span>
+                                </div>
+                            </div>
+                            <div class="trackers-list" id="trackersList">
+                                <div class="trackers-placeholder">Trackers will appear here after analysis</div>
+                            </div>
+                            <div class="result-recommendations" id="trackersRecommendations"></div>
+                        </div>
+
+                        <!-- WHOIS Information -->
+                        <div class="result-card" id="whoisCard">
+                            <div class="result-header">
+                                <div class="result-icon">
+                                    <i class="ph ph-info"></i>
+                                </div>
+                                <h3>Website Information</h3>
+                                <div class="result-status pending">
+                                    <i class="ph ph-clock"></i>
+                                    <span>Checking...</span>
+                                </div>
+                            </div>
+                            <div class="result-content">
+                                <div class="result-item">
+                                    <span class="item-label">Registered:</span>
+                                    <span class="item-value" id="domainAge">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Owner:</span>
+                                    <span class="item-value" id="domainOwner">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Country:</span>
+                                    <span class="item-value" id="domainCountry">--</span>
+                                </div>
+                            </div>
+                            <div class="result-recommendations" id="whoisRecommendations"></div>
+                        </div>
+
+                        <!-- Blacklist Status -->
+                        <div class="result-card" id="blacklistCard">
+                            <div class="result-header">
+                                <div class="result-icon">
+                                    <i class="ph ph-prohibit"></i>
+                                </div>
+                                <h3>Safety Check</h3>
+                                <div class="result-status pending">
+                                    <i class="ph ph-clock"></i>
+                                    <span>Checking...</span>
+                                </div>
+                            </div>
+                            <div class="result-content">
+                                <div class="result-item">
+                                    <span class="item-label">Blacklist Status:</span>
+                                    <span class="item-value" id="blacklistStatus">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Malware Detected:</span>
+                                    <span class="item-value" id="malwareStatus">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Phishing Risk:</span>
+                                    <span class="item-value" id="phishingStatus">--</span>
+                                </div>
+                            </div>
+                            <div class="result-recommendations" id="blacklistRecommendations"></div>
+                        </div>
+
+                        <!-- Privacy Policy -->
+                        <div class="result-card" id="policyCard">
+                            <div class="result-header">
+                                <div class="result-icon">
+                                    <i class="ph ph-file-text"></i>
+                                </div>
+                                <h3>Privacy Policy</h3>
+                                <div class="result-status pending">
+                                    <i class="ph ph-clock"></i>
+                                    <span>Checking...</span>
+                                </div>
+                            </div>
+                            <div class="result-content">
+                                <div class="result-item">
+                                    <span class="item-label">Policy Found:</span>
+                                    <span class="item-value" id="policyFound">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Data Sharing:</span>
+                                    <span class="item-value" id="dataSharing">--</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Readability:</span>
+                                    <span class="item-value" id="policyReadability">--</span>
+                                </div>
+                            </div>
+                            <div class="policy-highlights" id="policyHighlights">
+                                <div class="policy-placeholder">Policy highlights will appear here after analysis</div>
+                            </div>
+                            <div class="result-recommendations" id="policyRecommendations"></div>
+                        </div>
+
+                        <!-- Recommendations -->
+                        <div class="result-card recommendations-card" id="recommendationsCard">
+                            <div class="result-header">
+                                <div class="result-icon">
+                                    <i class="ph ph-lightbulb"></i>
+                                </div>
+                                <h3>Privacy Tips</h3>
+                            </div>
+                            <div class="result-content">
+                                <ul class="recommendations-list" id="recommendationsList">
+                                    <li class="recommendation-placeholder">Complete the analysis to get personalized privacy tips</li>
+                                </ul>
+                            </div>
+                            <div class="recommendations-actions">
+                                <button id="downloadReportBtn" class="secondary-button" disabled>
+                                    <i class="ph ph-file-pdf"></i>
+                                    Save Report
+                                </button>
+                                <button id="newAnalysisBtn" class="primary-button">
+                                    <i class="ph ph-magnifying-glass"></i>
+                                    New Analysis
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="privacy-tools-section">
+                    <h3>Recommended Privacy Tools</h3>
+                    <div class="privacy-tools">
+                        <div class="privacy-tool">
+                            <div class="tool-icon">
+                                <i class="ph ph-browser"></i>
+                            </div>
+                            <div class="tool-info">
+                                <h4>Privacy Browsers</h4>
+                                <p>Browsers that block trackers and protect your privacy</p>
+                                <a href="#" class="tool-link">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="privacy-tool">
+                            <div class="tool-icon">
+                                <i class="ph ph-prohibit"></i>
+                            </div>
+                            <div class="tool-info">
+                                <h4>Ad Blockers</h4>
+                                <p>Block unwanted ads and trackers while browsing</p>
+                                <a href="#" class="tool-link">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="privacy-tool">
+                            <div class="tool-icon">
+                                <i class="ph ph-shield"></i>
+                            </div>
+                            <div class="tool-info">
+                                <h4>VPN Services</h4>
+                                <p>Encrypt your connection and hide your location</p>
+                                <a href="#" class="tool-link">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>How to Use the Privacy Analyzer</h2>
+                <button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Website Privacy Analyzer</h3>
+                <p>This tool helps you check how safe and private a website is. It's easy to use and doesn't require any technical knowledge.</p>
+                
+                <h4>How to Use</h4>
+                <ol>
+                    <li>Enter a website address in the search box (e.g., example.com)</li>
+                    <li>Click "Analyze Website" to start the check</li>
+                    <li>Wait for the analysis to complete</li>
+                    <li>Review the privacy score and recommendations</li>
+                </ol>
+                
+                <h4>What We Check</h4>
+                <ul>
+                    <li><strong>Security Certificate:</strong> Checks if the website uses HTTPS to protect your connection</li>
+                    <li><strong>Cookies:</strong> Identifies tracking cookies that might follow your online activity</li>
+                    <li><strong>Trackers:</strong> Detects tools that websites use to collect information about you</li>
+                    <li><strong>Website Information:</strong> Shows basic details about who owns the website</li>
+                    <li><strong>Safety Check:</strong> Checks if the website is known for malware or scams</li>
+                    <li><strong>Privacy Policy:</strong> Analyzes how the website handles your personal information</li>
+                </ul>
+                
+                <h4>Privacy Score</h4>
+                <p>The privacy score (0-100%) shows how well the website protects your privacy. A higher score means better privacy practices.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/tool-dashboard.js"></script>
+    <script src="js/privacy-analyzer.js"></script>
+    <script src="js/tool-dashboard.js"></script>
+</body>
+</html>

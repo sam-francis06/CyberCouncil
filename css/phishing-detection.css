@@ -1,0 +1,693 @@
+/* Phishing Detection Tool Specific Styles */
+:root {
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --success-color: #10b981;
+    --info-color: #3b82f6;
+    --danger-bg: rgba(239, 68, 68, 0.1);
+    --warning-bg: rgba(245, 158, 11, 0.1);
+    --success-bg: rgba(16, 185, 129, 0.1);
+    --info-bg: rgba(59, 130, 246, 0.1);
+}
+
+.phishing-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.phishing-card {
+    background-color: var(--bg-primary);
+    border-radius: 0.75rem;
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.phishing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.phishing-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.phishing-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: var(--primary-color);
+    background-image: linear-gradient(135deg, #3b82f6, #2563eb);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+}
+
+.phishing-icon.email-icon {
+    background-color: #8b5cf6;
+    background-image: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.phishing-card:hover .phishing-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+}
+
+.phishing-icon i {
+    font-size: 1.75rem;
+    color: white;
+}
+
+.phishing-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+.phishing-description {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.phishing-input, 
+.phishing-textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    font-family: inherit;
+}
+
+.phishing-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.phishing-input:focus,
+.phishing-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.phishing-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+}
+
+.phishing-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.phishing-button:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+.phishing-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+}
+
+.phishing-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px -1px rgba(59, 130, 246, 0.2);
+}
+
+.phishing-button i {
+    font-size: 1.25rem;
+}
+
+/* Recent Scans */
+.recent-scans {
+    margin-top: 1.5rem;
+}
+
+.recent-scans h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.scan-list {
+    background-color: var(--bg-secondary);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.scan-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.scan-item:last-child {
+    border-bottom: none;
+}
+
+.scan-item:hover {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+.scan-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.scan-status {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.scan-status.safe {
+    background-color: var(--success-color);
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.scan-status.suspicious {
+    background-color: var(--warning-color);
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+
+.scan-status.dangerous {
+    background-color: var(--danger-color);
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+.scan-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+.scan-time {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.empty-state i {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    font-size: 0.875rem;
+}
+
+/* Results Container */
+.result-container {
+    background-color: var(--bg-primary);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    display: none;
+    animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.close-button i {
+    font-size: 1.25rem;
+}
+
+.result-content {
+    padding: 1.5rem;
+}
+
+.result-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.spinner {
+    width: 3rem;
+    height: 3rem;
+    border: 3px solid rgba(59, 130, 246, 0.2);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.result-data {
+    display: none;
+}
+
+.result-summary {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+}
+
+.result-summary.safe {
+    background-color: var(--success-bg);
+    border-left: 4px solid var(--success-color);
+}
+
+.result-summary.suspicious {
+    background-color: var(--warning-bg);
+    border-left: 4px solid var(--warning-color);
+}
+
+.result-summary.dangerous {
+    background-color: var(--danger-bg);
+    border-left: 4px solid var(--danger-color);
+}
+
+.result-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.result-icon.safe {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.result-icon.suspicious {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+.result-icon.dangerous {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.result-icon i {
+    font-size: 1.5rem;
+}
+
+.result-text h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.result-text p {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+.result-details {
+    margin-top: 1.5rem;
+}
+
+.detail-section {
+    margin-bottom: 1.5rem;
+}
+
+.detail-section h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-section h3 i {
+    color: var(--primary-color);
+}
+
+.detail-item {
+    display: flex;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.detail-label {
+    width: 40%;
+    font-weight: 500;
+    padding-right: 1rem;
+}
+
+.detail-value {
+    width: 60%;
+    color: var(--text-secondary);
+}
+
+.detail-value.safe {
+    color: var(--success-color);
+    font-weight: 500;
+}
+
+.detail-value.suspicious {
+    color: var(--warning-color);
+    font-weight: 500;
+}
+
+.detail-value.dangerous {
+    color: var(--danger-color);
+    font-weight: 500;
+}
+
+.result-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.action-button.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.action-button.primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.action-button.secondary {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.action-button.secondary:hover {
+    background-color: var(--border-color);
+    transform: translateY(-2px);
+}
+
+.action-button i {
+    font-size: 1.25rem;
+}
+
+/* Info Section */
+.phishing-info-section {
+    margin-top: 3rem;
+}
+
+.phishing-info-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.phishing-info-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3rem;
+    height: 0.25rem;
+    background-color: var(--primary-color);
+    border-radius: 0.125rem;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-card {
+    background-color: var(--bg-primary);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.info-icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--info-bg);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover .info-icon {
+    transform: scale(1.1);
+}
+
+.info-icon i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.info-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.info-card p {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+/* PDF Container Styles */
+.pdf-container {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1e293b;
+    background-color: white;
+}
+
+.recommendations-list {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.recommendations-list li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .phishing-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .result-summary {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+    }
+    
+    .detail-label, 
+    .detail-value {
+        width: 100%;
+    }
+    
+    .detail-label {
+        margin-bottom: 0.25rem;
+    }
+    
+    .result-actions {
+        flex-direction: column;
+    }
+    
+    .action-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .phishing-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .phishing-icon {
+        margin: 0 auto 1rem;
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    .phishing-card,
+    .phishing-button,
+    .phishing-icon,
+    .info-card,
+    .info-icon,
+    .result-container,
+    .spinner {
+        transition: none;
+        animation: none;
+    }
+    
+    .phishing-card:hover,
+    .info-card:hover,
+    .phishing-button:hover,
+    .action-button:hover {
+        transform: none;
+    }
+}

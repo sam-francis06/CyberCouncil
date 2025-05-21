@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="icon" type="image/png" href="cyber-security.png" />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-content">
+        <a href="/" class="nav-logo">
+          <svg
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <span>Cyber Council</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#team">Team</a>
+        </div>
+        <button class="hamburger" aria-label="Toggle menu">
+          <svg
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+          >
+            <path d="M3 12h18M3 6h18M3 18h18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div class="signup-section">
+      <div class="form-container" style="max-width: 420px; background: var(--card-bg); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); border: 1px solid var(--border-color);">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <svg
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.5"
+            fill="none"
+            style="width: 48px; height: 48px; color: var(--purple-400); margin-bottom: 1rem;"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text-color); margin-bottom: 0.5rem;">Police Portal</h2>
+          <p style="color: var(--text-color); opacity: 0.7; font-size: 0.95rem;">Enter your credentials to access the system</p>
+        </div>
+        <form id="police-login-form">
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="userid" style="display: block; margin-bottom: 0.5rem; color: var(--text-color); font-weight: 500;">User ID</label>
+            <input 
+              type="text" 
+              id="userid" 
+              required 
+              style="width: 100%; padding: 0.875rem 1rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 0.5rem; color: var(--text-color); font-size: 0.95rem; transition: all 0.3s ease;"
+              placeholder="Enter your User ID"
+            />
+          </div>
+          <div class="form-group" style="margin-bottom: 2rem;">
+            <label for="password" style="display: block; margin-bottom: 0.5rem; color: var(--text-color); font-weight: 500;">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              required 
+              style="width: 100%; padding: 0.875rem 1rem; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 0.5rem; color: var(--text-color); font-size: 0.95rem; transition: all 0.3s ease;"
+              placeholder="Enter your password"
+            />
+          </div>
+          <button 
+            type="submit" 
+            style="width: 100%; padding: 1rem; background: var(--purple-400); color: white; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-bottom: 1rem;"
+          >
+            Sign In
+          </button>
+          <div id="status-msg" class="status-message"></div>
+        </form>
+      </div>
+    </div>
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <svg
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="none"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+      const supabase = window.supabase.createClient(
+        'https://arhsghqcdocpquqkzxwh.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFyaHNnaHFjZG9jcHF1cWt6eHdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU1MDU4NTUsImV4cCI6MjA2MTA4MTg1NX0.J80PQNykHjA5zAtffWDx0TRjd98fIX0cP_bzHFa5CK8'
+      );
+
+      const form = document.getElementById('police-login-form');
+      const statusMsg = document.getElementById('status-msg');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const userid = document.getElementById('userid').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        statusMsg.textContent = '⏳ Logging in...';
+        statusMsg.className = 'status-message';
+
+        const { data, error } = await supabase
+          .from('police_users')
+          .select('*')
+          .eq('userid', userid)
+          .eq('password', password)
+          .single();
+
+        if (error || !data) {
+          statusMsg.textContent = '❌ Invalid User ID or Password';
+          statusMsg.className = 'status-message error';
+        } else {
+          localStorage.setItem('police_userid', data.userid);
+          statusMsg.textContent = `✅ Welcome Officer ${data.name}!`;
+          statusMsg.className = 'status-message success';
+          setTimeout(() => {
+            window.location.href = 'police-dashboard.html';
+          }, 1000);
+        }
+      });
+    </script>
+    <script>
+      // Theme toggle functionality
+      const themeToggle = document.querySelector('.theme-toggle');
+      const html = document.documentElement;
+
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      html.setAttribute('data-theme', savedTheme);
+
+      // Update theme toggle icon
+      const updateThemeIcon = (theme) => {
+        const moonIcon =
+          '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+        const sunIcon =
+          '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+        themeToggle.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
+      };
+
+      updateThemeIcon(savedTheme);
+
+      // Toggle theme
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+      });
+    </script>
+    <script src="js/index.js"></script>
+    <script>
+      // Hamburger menu toggle for mobile nav
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      const nav = document.querySelector('.nav'); // Get the nav element
+
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', (event) => {
+          navLinks.classList.toggle('active');
+          event.stopPropagation(); // Prevent click from immediately closing menu
+        });
+
+        // Close nav when clicking outside
+        document.addEventListener('click', (event) => {
+          // Check if the click is outside the nav element and the hamburger button
+          if (
+            !nav.contains(event.target) &&
+            !hamburger.contains(event.target) &&
+            navLinks.classList.contains('active')
+          ) {
+            navLinks.classList.remove('active');
+          }
+        });
+
+        // Close nav when a link is clicked (optional, but common for mobile nav)
+        navLinks.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

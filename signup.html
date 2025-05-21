@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Council - Sign Up</title>
+  <link rel="icon" type="image/png" href="shield.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css" />
+  <style>
+    .signup-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: linear-gradient(to bottom, rgba(66, 133, 244, 0.1), transparent);
+      margin-top: 80px;
+    }
+
+    .form-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 1.5rem;
+      padding: 3rem;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .signup-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .signup-icon {
+      width: 48px;
+      height: 48px;
+      color: var(--purple-400);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-container h2 {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-color);
+    }
+
+    .signup-subtitle {
+      color: var(--text-color);
+      opacity: 0.7;
+      font-size: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      color: var(--text-color);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--purple-400);
+      box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+    }
+
+    .form-group input::placeholder {
+      color: var(--text-color);
+      opacity: 0.5;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 0.875rem 1.5rem;
+      background: var(--purple-400);
+      color: white;
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 1rem;
+    }
+
+    .form-container button:hover {
+      background: var(--purple-500);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: var(--text-color);
+      font-size: 0.875rem;
+    }
+
+    .login-link a {
+      color: var(--purple-400);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .login-link a:hover {
+      color: var(--purple-500);
+    }
+
+    .status-message {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      text-align: center;
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    .status-message.success {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: #10b981;
+    }
+
+    .status-message.error {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+    }
+
+    @media (max-width: 768px) {
+      .signup-section {
+        padding: 1rem;
+      }
+
+      .form-container {
+        padding: 2rem;
+        border-radius: 1rem;
+      }
+
+      .signup-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 1rem;
+      }
+
+      .form-container h2 {
+        font-size: 1.75rem;
+      }
+
+      .signup-subtitle {
+        font-size: 0.875rem;
+      }
+
+      .form-group input {
+        padding: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .signup-section {
+        padding: 0.5rem;
+      }
+
+      .form-container {
+        padding: 1.5rem;
+      }
+
+      .form-container h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="nav-logo">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+        <span>Cyber Council</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="team.html">Team</a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="signup-section">
+    <div class="form-container">
+      <div class="signup-header">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" class="signup-icon">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+        <h2>Create Account</h2>
+        <p class="signup-subtitle">Join our secure community today</p>
+      </div>
+      <form id="signup-form">
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" required placeholder="Enter your full name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required placeholder="Enter your email" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required placeholder="Create a password" />
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" required placeholder="Confirm your password" />
+        </div>
+        <button type="submit">Create Account</button>
+      </form>
+      <div id="status-msg"></div>
+      <div class="login-link">
+        Already have an account? <a href="login.html">Sign in</a>
+      </div>
+    </div>
+  </div>
+
+  <button class="theme-toggle" aria-label="Toggle theme">
+    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const supabase = window.supabase.createClient(
+      'https://arhsghqcdocpquqkzxwh.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFyaHNnaHFjZG9jcHF1cWt6eHdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU1MDU4NTUsImV4cCI6MjA2MTA4MTg1NX0.J80PQNykHjA5zAtffWDx0TRjd98fIX0cP_bzHFa5CK8'
+    );
+
+    document.getElementById('signup-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const fullname = document.getElementById('fullname').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      const statusMsg = document.getElementById('status-msg');
+
+      statusMsg.innerHTML = '';
+      statusMsg.className = 'status-message';
+
+      if (password !== confirmPassword) {
+        statusMsg.innerHTML = 'Passwords do not match';
+        statusMsg.className = 'status-message error';
+        return;
+      }
+
+      try {
+        const { data, error } = await supabase.auth.signUp({
+          email: email,
+          password: password,
+          options: {
+            emailRedirectTo: window.location.origin + '/login.html',
+            data: {
+              full_name: fullname
+            }
+          }
+        });
+
+        if (error) throw error;
+
+        statusMsg.innerHTML = '✅ Registration successful! Please check your Email';
+        statusMsg.className = 'status-message success';
+
+        setTimeout(() => {
+          window.location.href = 'login.html';
+        }, 2000);
+
+      } catch (error) {
+        console.error('Signup error:', error);
+        statusMsg.innerHTML = '❌ ' + (error.message || 'An error occurred during signup');
+        statusMsg.className = 'status-message error';
+      }
+    });
+  </script>
+  <script>
+    // Mobile menu toggle functionality
+    document.querySelector('.hamburger').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburger = document.querySelector('.hamburger');
+      
+      if (!navLinks.contains(event.target) && !hamburger.contains(event.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+      }
+    });
+  </script>
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.querySelector('.theme-toggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    
+    // Update theme toggle icon
+    const updateThemeIcon = (theme) => {
+      const moonIcon = '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+      const sunIcon = '<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+      themeToggle.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
+    };
+    
+    updateThemeIcon(savedTheme);
+    
+    // Toggle theme
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/police-tool-dashboard.css">
+    <link rel="stylesheet" href="css/url-status-checker.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i data-lucide="menu"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="shield"></i>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="police-dashboard.html" class="nav-link">Dashboard</a>
+            <a href="case-management.html" class="nav-link">Case Management</a>
+            <a href="police-tool-dashboard.html" class="nav-link">Tools</a>
+            
+            <a href="cyber-laws.html" class="nav-link">Cyber Laws</a>
+            <a href="police-profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-dropdown">
+        <a href="police-dashboard.html" class="mobile-nav-link">
+          <i class="ph ph-gauge"></i>
+          Dashboard
+        </a>
+        <a href="case-management.html" class="mobile-nav-link">
+          <i class="ph ph-folders"></i>
+          Case Management
+        </a>
+        <a href="police-tool-dashboard.css" class="mobile-nav-link">
+          <i class="ph ph-wrench"></i>
+          Tools
+        </a>
+        
+        <a href="cyber-laws.html" class="mobile-nav-link">
+          <i class="ph ph-gavel"></i>
+          Cyber Laws
+        </a>
+        <a href="police-profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+      </div>
+      
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>MAIN MENU</h3>
+                <a href="police-tool-dashboard.html" class="menu-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    Tool-Dashboard
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>Digital Forensics Tools</h3>
+                <a href="file-hash-generator.html" class="menu-item">
+                    <i data-lucide="search"></i>
+                    File Hash Generator
+                </a>
+                <a href="file-metadata-analyzer.html" class="menu-item">
+                    <i data-lucide="file-search"></i>
+                    File Metadata Analyzer
+                </a>
+                <a href="metadata.html" class="menu-item">
+                    <i data-lucide="image"></i>
+                    Image Metadata Viewer
+                </a>
+                <a href="file-type-validator.html" class="menu-item">
+                    <i data-lucide="file-check-2"></i>
+                    File Type Validator
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>Cyber Investigation Tools</h3>
+                <a href="username-lookup.html" class="menu-item">
+                    <i data-lucide="user-search"></i>
+                    Username Lookup
+                </a>
+                <a href="url-status-checker.html" class="menu-item active">
+                    <i data-lucide="globe"></i>
+                    URL Live Status Checker
+                </a>
+                <a href="user-ip-display.html" class="menu-item">
+                    <i data-lucide="map-pin-house"></i>
+                    User IP Display
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>URL Live Status Checker</h1>
+                <p>Advanced tool for real-time website status monitoring and verification during cyber investigations</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon vulnerability">
+                        <i data-lucide="activity"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Response Time Analysis</h3>
+                        <div class="stat-value">Real-time</div>
+                        <p>Precise latency measurement</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon audit">
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Status Verification</h3>
+                        <div class="stat-value">HTTP/HTTPS</div>
+                        <p>Comprehensive protocol support</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon blocked">
+                        <i data-lucide="shield"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Security Check</h3>
+                        <div class="stat-value">SSL/TLS</div>
+                        <p>Certificate validation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="url-checker-container">
+                <div class="url-input-section">
+                    <div class="input-group">
+                        <input type="url" id="urlInput" placeholder="Enter URL (e.g., https://example.com)" class="url-input">
+                        <button id="checkButton" class="primary-button">
+                            <i data-lucide="search"></i>
+                            Check Status
+                        </button>
+                    </div>
+                    <div class="bulk-section">
+                        <textarea id="bulkUrls" placeholder="Enter multiple URLs (one per line) for bulk checking" class="bulk-input"></textarea>
+                        <button id="bulkCheckButton" class="primary-button">
+                            <i data-lucide="list-checks"></i>
+                            Bulk Check
+                        </button>
+                    </div>
+                </div>
+
+                <div class="results-section">
+                    <div class="results-header">
+                        <h2>Results</h2>
+                        <button id="clearResults" class="secondary-button">
+                            <i data-lucide="trash-2"></i>
+                            Clear
+                        </button>
+                    </div>
+                    <div id="resultsContainer" class="results-container"></div>
+                </div>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">
+                            <i data-lucide="globe"></i>
+                        </div>
+                        <h3>Single URL Check</h3>
+                    </div>
+                    <p>Real-time Monitoring</p>
+                    <p class="tool-description">
+                        Instantly verify website availability and response status with detailed metrics and security information.
+                    </p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">
+                            <i data-lucide="list"></i>
+                        </div>
+                        <h3>Bulk URL Analysis</h3>
+                    </div>
+                    <p>Mass Verification</p>
+                    <p class="tool-description">
+                        Efficiently check multiple URLs simultaneously with comprehensive status reporting and response time tracking.
+                    </p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+                        <h3>Security Validation</h3>
+                    </div>
+                    <p>Protocol Verification</p>
+                    <p class="tool-description">
+                        Verify SSL/TLS certificates and security protocols to ensure secure communication channels.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/police-auth-check.js"></script>
+    <script src="js/url-status-checker.js"></script>
+    <script src="js/police-tool-dashboard.js"></script>
+</body>
+</html>

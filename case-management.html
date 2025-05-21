@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="css/police-tool-dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/case-management.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/date-fns@2.30.0/dist/date-fns.min.js"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-left">
+          <div class="logo">
+            <i data-lucide="shield"></i>
+            <span>Cyber Council</span>
+          </div>
+        </div>
+        <div class="nav-right">
+          <a href="police-dashboard.html" class="nav-link">Dashboard</a>
+          <a href="case-management.html" class="nav-link">Case Management</a>
+          <a href="police-tool-dashboard.html" class="nav-link">Tools</a>
+          <a href="cyber-laws.html" class="nav-link">Cyber Laws</a>
+          <a href="police-profile.html" class="user-profile">
+            <i class="ph ph-user"></i>
+        </a>
+          <button class="home-icon">
+            <i class="ph ph-house-line"></i>
+          </button>
+        </div>
+      </nav>
+  
+      <div class="mobile-dropdown">
+        <a href="police-dashboard.html" class="mobile-nav-link">
+          <i class="ph ph-gauge"></i>
+          Dashboard
+        </a>
+        <a href="case-management.html" class="mobile-nav-link">
+          <i class="ph ph-folders"></i>
+          Case Management
+        </a>
+        <a href="police-tool-dashboard.html" class="mobile-nav-link">
+          <i class="ph ph-wrench"></i>
+          Tools
+        </a>
+        </a>
+        <a href="cyber-laws.html" class="mobile-nav-link">
+          <i class="ph ph-gavel"></i>
+          Cyber Laws
+        </a>
+        <a href="police-profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+      </div>
+
+    <div class="container">
+        <main class="main-content">
+            <div class="cases-header">
+                <h1>Case Management</h1>
+                <button class="new-case-btn" id="newCaseBtn" data-tooltip="Create a new case">
+                    <i class="ph ph-plus"></i>
+                    New Case
+                </button>
+            </div>
+
+            <div class="cases-filters">
+                <div class="search-bar">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Search cases by ID, title, description, or officer...">
+                </div>
+                <div class="filter-group">
+                    <select class="filter-select">
+                        <option value="">Status: All</option>
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">Priority: All</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">Category: All</option>
+                        <option value="financial-fraud">Financial Fraud</option>
+                        <option value="cybercrime">Cybercrime</option>
+                        <option value="phishing">Phishing Attack</option>
+                        <option value="malware">Malware Incident</option>
+                        <option value="data-breach">Data Breach</option>
+                        <option value="identity-theft">Identity Theft</option>
+                    </select>
+                    <input type="date" class="date-filter" data-tooltip="Filter by date">
+                </div>
+            </div>
+
+            <div class="cases-grid" id="casesGrid">
+                <!-- Cases will be dynamically inserted here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- New Case Modal -->
+    <div class="modal" id="newCaseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>New Case</h2>
+                <button class="close-modal"><i class="ph ph-x"></i></button>
+            </div>
+            <form id="newCaseForm">
+                <div class="form-group">
+                    <label for="caseTitle">Case Title</label>
+                    <input type="text" id="caseTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="caseDescription">Description</label>
+                    <textarea id="caseDescription" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="casePriority">Priority</label>
+                        <select id="casePriority" required>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="caseCategory">Category</label>
+                        <select id="caseCategory" required>
+                            <option value="financial-fraud">Financial Fraud</option>
+                            <option value="cybercrime">Cybercrime</option>
+                            <option value="phishing">Phishing Attack</option>
+                            <option value="malware">Malware Incident</option>
+                            <option value="data-breach">Data Breach</option>
+                            <option value="identity-theft">Identity Theft</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="assignedOfficer">Assigned Officer</label>
+                        <input type="text" id="assignedOfficer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="caseLocation">Location</label>
+                        <input type="text" id="caseLocation" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="caseVictim">Victim Name/Organization</label>
+                        <input type="text" id="caseVictim" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="caseEvidence">Evidence (comma-separated)</label>
+                        <input type="text" id="caseEvidence" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="assignedTeam">Assigned Teams</label>
+                    <select id="assignedTeam" multiple required>
+                        <option value="Digital Forensics">Digital Forensics</option>
+                        <option value="Cybercrime Unit">Cybercrime Unit</option>
+                        <option value="Fraud Unit">Fraud Unit</option>
+                        <option value="Intelligence">Intelligence</option>
+                        <option value="Technical Support">Technical Support</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="secondary-button" id="cancelNewCase">Cancel</button>
+                    <button type="submit" class="primary-button">Create Case</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Case Details Modal -->
+    <div class="modal" id="caseDetailsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Case Details</h2>
+                <button class="close-modal"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="case-details-content">
+                <div class="case-info">
+                    <span class="case-id"></span>
+                    <span class="priority"></span>
+                </div>
+                <h3 class="case-title"></h3>
+                <p class="case-description"></p>
+                
+                <div class="case-meta-details">
+                    <div class="meta-item">
+                        <label>Category</label>
+                        <p class="case-category"></p>
+                    </div>
+                    <div class="meta-item">
+                        <label>Location</label>
+                        <p class="case-location"></p>
+                    </div>
+                    <div class="meta-item">
+                        <label>Victim</label>
+                        <p class="case-victim"></p>
+                    </div>
+                    <div class="meta-item">
+                        <label>Evidence</label>
+                        <ul class="evidence-list case-evidence"></ul>
+                    </div>
+                </div>
+
+                <div class="assigned-teams"></div>
+
+                <div class="case-details">
+                    <div class="officer-info">
+                        <i class="ph ph-user"></i>
+                        <span></span>
+                    </div>
+                    <div class="update-info">
+                        <i class="ph ph-clock"></i>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="status-section">
+                    <label for="caseStatus">Status</label>
+                    <select id="caseStatus">
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button class="danger-button" id="deleteCase">
+                        <i class="ph ph-trash"></i>
+                        Delete Case
+                    </button>
+                    <div class="action-group">
+                        <button class="secondary-button" id="closeDetails">Close</button>
+                        <button class="primary-button" id="updateCase">Update Case</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="deleteConfirmModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Confirm Delete</h2>
+                <button class="close-modal"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="delete-confirm-content">
+                <div class="warning-icon">
+                    <i class="ph ph-warning"></i>
+                </div>
+                <p>Are you sure you want to delete this case? This action cannot be undone.</p>
+                <div class="form-actions">
+                    <button class="secondary-button" id="cancelDelete">Cancel</button>
+                    <button class="danger-button" id="confirmDelete">Delete Case</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/police-auth-check.js"></script>
+    <script src="js/police-tool-dashboard.js"></script>
+    <script src="js/case-management.js"></script>
+</body>
+</html>

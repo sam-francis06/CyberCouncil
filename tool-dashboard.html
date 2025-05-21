@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tool-dashboard.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i class="ph ph-list"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="tool-dashboard.html" class="nav-link">Tools</a>
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="user-cyber-laws.html" class="nav-link">Cyber Laws</a>
+            <a href="profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-dropdown">
+        <a href="dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-gauge"></i>
+            Dashboard
+        </a>
+        <a href="tool-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-wrench"></i>
+            Tools
+        </a>
+        <a href="reports.html" class="mobile-nav-link">
+            <i class="ph ph-chart-pie-slice"></i>
+            Reports
+        </a>
+        <a href="user-cyber-laws.html" class="mobile-nav-link">
+            <i class="ph ph-gavel"></i>
+            Cyber Laws
+        </a>
+        <a href="profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>MAIN MENU</h3>
+                <a href="tool-dashboard.html" class="menu-item active">
+                    <i class="ph ph-squares-four"></i>
+                    Dashboard
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>SECURITY TOOLS</h3>
+                <a href="phishing-detection.html" class="menu-item">
+                    <i class="ph ph-fish"></i>
+                    Phishing Detection
+                </a>
+                <a href="wifi-security.html" class="menu-item">
+                    <i class="ph ph-wifi-high"></i>
+                    WiFi Security
+                </a>
+                <a href="social-engineering.html" class="menu-item">
+                    <i class="ph ph-users-three"></i>
+                    Social Engineering
+                </a>
+                <a href="password-checker.html" class="menu-item">
+                    <i class="ph ph-password"></i>
+                    Password Strength
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>ANALYSIS TOOLS</h3>
+                
+                <a href="privacy-analyzer.html" class="menu-item">
+                    <i class="ph ph-shield-check"></i>
+                    Privacy Analysis
+                </a>
+                <a href="malware.html" class="menu-item">
+                    <i class="ph ph-virus"></i>
+                    Malware Scanner
+                </a>
+                <a href="image-metadata.html" class="menu-item">
+                    <i class="ph ph-image"></i>
+                    Image Metadata Extractor
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Individual Dashboard</h1>
+                <p>Monitor and manage your cybersecurity tools and analysis reports</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon vulnerability">
+                        <i class="ph ph-shield-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Vulnerability Score</h3>
+                        <div class="stat-value">92 <span class="trend positive">↑ 3%</span></div>
+                        <p>System security rating</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon audit">
+                        <i class="ph ph-clock-countdown"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Last Security Audit</h3>
+                        <div class="stat-value">2h ago</div>
+                        <p>All systems checked</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon blocked">
+                        <i class="ph ph-prohibit"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Blocked Attempts</h3>
+                        <div class="stat-value">1,248 <span class="trend negative">↓ 12%</span></div>
+                        <p>Last 24 hours</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon encryption">
+                        <i class="ph ph-lock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Encryption Status</h3>
+                        <div class="stat-value">256-bit</div>
+                        <p>AES encryption active</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">
+                            <i class="ph ph-fish"></i>
+                        </div>
+                        <h3>Phishing Detection</h3>
+                    </div>
+                    <p>AI-Powered Analysis</p>
+                    <p class="tool-description">Detect and analyze potential phishing attempts in emails and websites using advanced machine learning algorithms.</p>
+                    <div class="tool-footer">
+                        <a href="phishing-detection.html" class="primary-button">
+                            <i class="ph ph-play"></i>
+                            Launch Scanner
+                        </a>
+                        <div class="tool-stats">
+                            <span>Real-time</span>
+                            <span>99.9% Accuracy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">
+                            <i class="ph ph-wifi-high"></i>
+                        </div>
+                        <h3>WiFi Security Checker</h3>
+                    </div>
+                    <p>Network Protection</p>
+                    <p class="tool-description">Analyze your WiFi network security and identify potential vulnerabilities and risks.</p>
+                    <div class="tool-footer">
+                        <a href="wifi-security.html" class="primary-button">
+                            <i class="ph ph-scan"></i>
+                            Scan Network
+                        </a>
+                        <div class="tool-stats">
+                            <span>Instant Scan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">
+                            <i class="ph ph-users-three"></i>
+                        </div>
+                        <h3>Social Engineering</h3>
+                    </div>
+                    <p>Threat Detection</p>
+                    <p class="tool-description">Identify and prevent social engineering attacks using behavioral analysis and AI.</p>
+                    <div class="tool-footer">
+                        <a href="social-engineering.html" class="primary-button">
+                            <i class="ph ph-activity"></i>
+                            Analyze
+                        </a>
+                        <div class="tool-stats">
+                            <span>AI-Powered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/tool-dashboard.js"></script>
+</body>
+</html>

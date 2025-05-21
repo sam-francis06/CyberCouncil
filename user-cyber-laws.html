@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/user-cyber-laws.css">
+    <link rel="stylesheet" href="tool-dashboard.css">
+  </head>
+  <body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i class="ph ph-list"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="tool-dashboard.html" class="nav-link">Tools</a>
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="user-cyber-laws.html" class="nav-link">Cyber Laws</a>
+            
+            <a href="profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-dropdown">
+        <a href="dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-gauge"></i>
+            Dashboard
+        </a>
+        <a href="tool-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-wrench"></i>
+            Tools
+        </a>
+        <a href="reports.html" class="mobile-nav-link">
+            <i class="ph ph-chart-pie-slice"></i>
+            Reports
+        </a>
+        <a href="user-cyber-laws.html" class="mobile-nav-link">
+            <i class="ph ph-gavel"></i>
+            Cyber Laws
+        </a>
+        <a href="profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-content">
+            <h1>Indian Cyber Laws Analysis</h1>
+            
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search Indian cyber laws (e.g., 'hacking', 'data protection', 'privacy')" class="search-input">
+                    <button class="search-button" id="searchButton">
+                        <i class="ph ph-magnifying-glass"></i>
+                        Search
+                    </button>
+                </div>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+
+            <div class="law-categories">
+                <div class="category-card" data-category="it-act">
+                    <i class="ph ph-book-bookmark text-primary"></i>
+                    <h3>IT Act Sections</h3>
+                    <p>Browse through different sections of the Information Technology Act, 2000.</p>
+                    <div class="category-stats">
+                        <span>43 Sections</span>
+                        <span>Last updated: 2023</span>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="case-laws">
+                    <i class="ph ph-gavel text-primary"></i>
+                    <h3>Case Laws</h3>
+                    <p>Access landmark judgments and case studies in Indian cyber law.</p>
+                    <div class="category-stats">
+                        <span>150+ Cases</span>
+                        <span>Updated weekly</span>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="legal-rights">
+                    <i class="ph ph-shield"></i>
+                    <h3>Legal Rights</h3>
+                    <p>Understand your rights and protections under Indian cyber laws.</p>
+                    <div class="category-stats">
+                        <span>25+ Topics</span>
+                        <span>Citizen focused</span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="law-results">
+                <div class="section-header">
+                    <h2>Featured Legal Information</h2>
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="criminal">Criminal</button>
+                        <button class="filter-btn" data-filter="civil">Civil</button>
+                        <button class="filter-btn" data-filter="regulatory">Regulatory</button>
+                    </div>
+                </div>
+                
+                <!-- Law items will be populated by JavaScript -->
+            </section>
+
+            <section class="recent-updates">
+                <h2>Recent Updates</h2>
+                <div class="updates-list" id="updatesList">
+                    <!-- Updates will be populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/user-cyber-laws.js"></script>
+  </body>
+</html>

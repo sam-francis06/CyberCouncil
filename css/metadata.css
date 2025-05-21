@@ -1,0 +1,457 @@
+.metadata-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.upload-section {
+    background-color: var(--bg-primary);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.upload-area {
+    border: 2px dashed var(--border-color);
+    border-radius: 0.75rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-area.drag-over {
+    border-color: var(--primary-color);
+    background-color: rgba(59, 130, 246, 0.05);
+    transform: scale(0.99);
+}
+
+.upload-area i {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.upload-area h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.upload-area p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.upload-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.file-types {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+}
+
+.preview-section, .metadata-section {
+    background-color: var(--bg-primary);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.preview-header, .metadata-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.preview-header h3, .metadata-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.clear-button, .export-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.clear-button {
+    color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: none;
+}
+
+.clear-button:hover {
+    background-color: rgba(239, 68, 68, 0.2);
+}
+
+.export-button {
+    color: var(--primary-color);
+    background-color: rgba(59, 130, 246, 0.1);
+    border: none;
+}
+
+.export-button:hover {
+    background-color: rgba(59, 130, 246, 0.2);
+}
+
+.preview-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--bg-secondary);
+    border-radius: 0.5rem;
+}
+
+#imagePreview {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 0.5rem;
+}
+
+.metadata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.metadata-item {
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.metadata-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.metadata-item h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.metadata-item p {
+    font-size: 1rem;
+    color: var(--text-primary);
+    word-break: break-all;
+}
+
+.privacy-alert {
+    background-color: #fee2e2;
+    border-left: 4px solid #ef4444;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+}
+
+.privacy-alert h4 {
+    color: #dc2626;
+    margin-bottom: 0.5rem;
+}
+
+.privacy-alert p {
+    color: #991b1b;
+    font-size: 0.875rem;
+}
+
+.batch-preview {
+    background-color: var(--bg-primary);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+}
+
+.batch-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.batch-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.batch-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.batch-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.batch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.batch-item {
+    background-color: var(--bg-secondary);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.batch-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.batch-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0.375rem;
+    margin-bottom: 0.75rem;
+}
+
+.batch-item-info {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.batch-item-status {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-pending {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
+.status-processing {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--primary-color);
+}
+
+.status-complete {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.status-error {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.preview-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.action-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.image-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    border-radius: 0.5rem;
+}
+
+.image-info {
+    margin-top: 2rem;
+    background-color: var(--bg-secondary);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.risk-score {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.risk-low {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.risk-medium {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
+.risk-high {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.metadata-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-button::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.tab-button.active {
+    color: var(--primary-color);
+}
+
+.tab-button.active::after {
+    transform: scaleX(1);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.export-options {
+    display: flex;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .metadata-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .upload-area {
+        padding: 2rem 1rem;
+    }
+
+    .preview-section, .metadata-section {
+        padding: 1rem;
+    }
+
+    .preview-actions,
+    .export-options,
+    .metadata-tabs {
+        flex-direction: column;
+    }
+
+    .batch-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .batch-actions {
+        width: 100%;
+    }
+
+    .batch-button {
+        flex: 1;
+    }
+}

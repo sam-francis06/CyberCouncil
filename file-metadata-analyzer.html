@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/police-tool-dashboard.css">
+    <link rel="stylesheet" href="css/file-metadata-analyzer.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i data-lucide="menu"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="shield"></i>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="police-dashboard.html" class="nav-link">Dashboard</a>
+            <a href="case-management.html" class="nav-link">Case Management</a>
+            <a href="police-tool-dashboard.html" class="nav-link">Tools</a>
+            
+            <a href="cyber-laws.html" class="nav-link">Cyber Laws</a>
+            <a href="police-profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-dropdown">
+        <a href="police-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-gauge"></i>
+            Dashboard
+        </a>
+        <a href="case-management.html" class="mobile-nav-link">
+            <i class="ph ph-folders"></i>
+            Case Management
+        </a>
+        <a href="police-tool-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-wrench"></i>
+            Tools
+        </a>
+        
+        <a href="cyber-laws.html" class="mobile-nav-link">
+            <i class="ph ph-gavel"></i>
+            Cyber Laws
+        </a>
+        <a href="police-profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>MAIN MENU</h3>
+                <a href="police-tool-dashboard.html" class="menu-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    Tool Dashboard
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>Digital Forensics Tools</h3>
+                <a href="file-hash-generator.html" class="menu-item">
+                    <i data-lucide="search"></i>
+                    File Hash Generator
+                </a>
+                <a href="file-metadata-analyzer.html" class="menu-item active">
+                    <i data-lucide="file-search"></i>
+                    File Metadata Analyzer
+                </a>
+                <a href="metadata.html" class="menu-item">
+                    <i data-lucide="image"></i>
+                    Image Metadata Viewer
+                </a>
+                <a href="file-type-validator.html" class="menu-item">
+                    <i data-lucide="file-check-2"></i>
+                    File Type Validator
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>Cyber Investigation Tools</h3>
+                <a href="username-lookup.html" class="menu-item">
+                    <i data-lucide="user-search"></i>
+                    Username Lookup
+                </a>
+                <a href="url-status-checker.html" class="menu-item">
+                    <i data-lucide="globe"></i>
+                    URL Live Status Checker
+                </a>
+                <a href="user-ip-display.html" class="menu-item">
+                    <i data-lucide="map-pin"></i>
+                    User IP Display
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Advanced File Metadata Analyzer</h1>
+                <p>Extract and analyze comprehensive metadata from files for digital forensics investigations</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon vulnerability">
+                        <i data-lucide="file-search"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Supported File Types</h3>
+                        <div class="stat-value">25+</div>
+                        <p>Common digital formats</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon audit">
+                        <i data-lucide="layers"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Metadata Fields</h3>
+                        <div class="stat-value">50+</div>
+                        <p>Detailed attributes</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon blocked">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Security Analysis</h3>
+                        <div class="stat-value">Real-time</div>
+                        <p>Threat detection</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analyzer-container">
+                <div class="upload-section">
+                    <div class="upload-area" id="dropZone">
+                        <i data-lucide="upload-cloud" class="upload-icon"></i>
+                        <p>Drag and drop files here or</p>
+                        <label for="fileInput" class="upload-button">Choose Files</label>
+                        <input type="file" id="fileInput" multiple hidden>
+                    </div>
+                </div>
+
+                <div class="results-section">
+                    <div class="results-header">
+                        <h2>Analysis Results</h2>
+                        <button class="export-button" id="exportButton">
+                            <i data-lucide="download"></i>
+                            Export Report
+                        </button>
+                    </div>
+                    <div class="results-container" id="resultsContainer">
+                        <div class="no-files-message">
+                            <i data-lucide="file-question"></i>
+                            <p>No files analyzed yet</p>
+                            <span>Upload files to view their metadata</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i data-lucide="fingerprint" class="feature-icon"></i>
+                    <h3>Forensic Analysis</h3>
+                    <p>Extract hidden file attributes and metadata for digital investigations</p>
+                </div>
+                <div class="feature-card">
+                    <i data-lucide="shield" class="feature-icon"></i>
+                    <h3>Security Scanning</h3>
+                    <p>Detect potential security threats and file integrity issues</p>
+                </div>
+                <div class="feature-card">
+                    <i data-lucide="file-text" class="feature-icon"></i>
+                    <h3>Detailed Reports</h3>
+                    <p>Generate comprehensive analysis reports in multiple formats</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="modal" id="previewModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="preview-container" id="previewContent"></div>
+        </div>
+    </div>
+    <script src="js/police-auth-check.js"></script>
+    <script src="js/file-metadata-analyzer.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/police-tool-dashboard.css">
+    <link rel="stylesheet" href="css/file-type-validator.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i data-lucide="menu"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="shield"></i>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="police-dashboard.html" class="nav-link">Dashboard</a>
+            <a href="case-management.html" class="nav-link">Case Management</a>
+            <a href="police-tool-dashboard.html" class="nav-link">Tools</a>
+            
+            <a href="cyber-laws.html" class="nav-link">Cyber Laws</a>
+            <a href="police-profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            <button class="home-icon">
+              <i class="ph ph-house-line"></i>
+            </button>
+          </div>
+    </nav>
+    <div class="mobile-dropdown">
+        <a href="police-dashboard.html" class="mobile-nav-link">
+          <i class="ph ph-gauge"></i>
+          Dashboard
+        </a>
+        <a href="case-management.html" class="mobile-nav-link">
+          <i class="ph ph-folders"></i>
+          Case Management
+        </a>
+        <a href="police-tool-dashboard.css" class="mobile-nav-link">
+          <i class="ph ph-wrench"></i>
+          Tools
+        </a>
+        
+        <a href="cyber-laws.html" class="mobile-nav-link">
+          <i class="ph ph-gavel"></i>
+          Cyber Laws
+        </a>
+        <a href="police-profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>MAIN MENU</h3>
+                <a href="police-tool-dashboard.html" class="menu-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    Tool-Dashboard
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>Digital Forensics Tools</h3>
+                <a href="file-hash-generator.html" class="menu-item">
+                    <i data-lucide="search"></i>
+                    File Hash Generator
+                </a>
+                <a href="file-metadata-analyzer.html" class="menu-item">
+                    <i data-lucide="file-search"></i>
+                    File Metadata Analyzer
+                </a>
+                <a href="metadata.html" class="menu-item">
+                    <i data-lucide="image"></i>
+                    Image Metadata Viewer
+                </a>
+                <a href="file-type-validator.html" class="menu-item active">
+                    <i data-lucide="file-check-2"></i>
+                    File Type Validator
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>Cyber Investigation Tools</h3>
+                <a href="username-lookup.html" class="menu-item">
+                    <i data-lucide="user-search"></i>
+                    Username Lookup
+                </a>
+                <a href="url-status-checker.html" class="menu-item">
+                    <i data-lucide="globe"></i>
+                    URL Live Status Checker
+                </a>
+                <a href="user-ip-display.html" class="menu-item">
+                    <i data-lucide="map-pin"></i>
+                    User IP Display
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>File Type Validator</h1>
+                <p>Advanced digital forensics tool for validating file authenticity through signature analysis</p>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <i data-lucide="shield-check"></i>
+                    <h3>Forensic Validation</h3>
+                    <p>Verify file authenticity by analyzing binary signatures and magic numbers</p>
+                </div>
+                <div class="info-card">
+                    <i data-lucide="file-warning"></i>
+                    <h3>Tamper Detection</h3>
+                    <p>Identify potentially modified or corrupted files</p>
+                </div>
+                <div class="info-card">
+                    <i data-lucide="check-circle"></i>
+                    <h3>Evidence Integrity</h3>
+                    <p>Ensure digital evidence maintains its forensic integrity</p>
+                </div>
+            </div>
+
+            <div class="tool-container">
+                <div class="tool-header">
+                    <div class="tool-title">
+                        <i data-lucide="file-check"></i>
+                        <h2>File Analysis</h2>
+                    </div>
+                    <div class="supported-types">
+                        <span>Supported Types:</span>
+                        <div class="type-tags">
+                            <span class="type-tag">JPEG</span>
+                            <span class="type-tag">PNG</span>
+                            <span class="type-tag">PDF</span>
+                            <span class="type-tag">GIF</span>
+                            <span class="type-tag">MP3</span>
+                            <span class="type-tag">MP4</span>
+                            <span class="type-tag">ZIP</span>
+                            <span class="type-tag">EXE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="upload-section">
+                    <div class="upload-area" id="dropZone">
+                        <i data-lucide="upload-cloud" class="upload-icon"></i>
+                        <h3>Upload Files for Analysis</h3>
+                        <p>Drag and drop files here or</p>
+                        <input type="file" id="fileInput" class="file-input" multiple>
+                        <label for="fileInput" class="upload-button">Choose Files</label>
+                        <div class="upload-info">Maximum file size: 100MB</div>
+                    </div>
+                </div>
+
+                <div class="results-section">
+                    <div class="results-header">
+                        <h2>Validation Results</h2>
+                        <button class="clear-results" id="clearResults">
+                            <i data-lucide="trash-2"></i>
+                            Clear All
+                        </button>
+                    </div>
+                    <div id="resultsContainer" class="results-container">
+                        <div class="no-files">
+                            <i data-lucide="inbox"></i>
+                            <p>No files analyzed yet</p>
+                            <span>Upload files to begin analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/police-auth-check.js"></script>
+    <script src="js/file-type-validator.js"></script>
+    <script src="js/police-tool-dashboard.js"></script>
+</body>
+</html>

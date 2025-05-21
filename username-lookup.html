@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/police-tool-dashboard.css">
+    <link rel="stylesheet" href="css/username-lookup.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i data-lucide="menu"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <i data-lucide="shield"></i>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="police-dashboard.html" class="nav-link">Dashboard</a>
+            <a href="case-management.html" class="nav-link">Case Management</a>
+            <a href="police-tool-dashboard.html" class="nav-link">Tools</a>
+            
+            <a href="cyber-laws.html" class="nav-link">Cyber Laws</a>
+            <a href="police-profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-dropdown">
+        <a href="police-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-gauge"></i>
+            Dashboard
+        </a>
+        <a href="case-management.html" class="mobile-nav-link">
+            <i class="ph ph-folders"></i>
+            Case Management
+        </a>
+        <a href="police-tool-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-wrench"></i>
+            Tools
+        </a>
+        
+        <a href="cyber-laws.html" class="mobile-nav-link">
+            <i class="ph ph-gavel"></i>
+            Cyber Laws
+        </a>
+        <a href="police-profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>MAIN MENU</h3>
+                <a href="police-tool-dashboard.html" class="menu-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    Tool Dashboard
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>Digital Forensics Tools</h3>
+                <a href="file-hash-generator.html" class="menu-item">
+                    <i data-lucide="search"></i>
+                    File Hash Generator
+                </a>
+                <a href="file-metadata-analyzer.html" class="menu-item">
+                    <i data-lucide="file-search"></i>
+                    File Metadata Analyzer
+                </a>
+                <a href="metadata.html" class="menu-item">
+                    <i data-lucide="image"></i>
+                    Image Metadata Viewer
+                </a>
+                <a href="file-type-validator.html" class="menu-item">
+                    <i data-lucide="file-check-2"></i>
+                    File Type Validator
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>Cyber Investigation Tools</h3>
+                <a href="username-lookup.html" class="menu-item active">
+                    <i data-lucide="user-search"></i>
+                    Username Lookup
+                </a>
+                <a href="url-status-checker.html" class="menu-item">
+                    <i data-lucide="globe"></i>
+                    URL Live Status Checker
+                </a>
+                <a href="user-ip-display.html" class="menu-item">
+                    <i data-lucide="map-pin"></i>
+                    User IP Display
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Username Lookup Tool</h1>
+                <p>Search and analyze username presence across multiple social media platforms and websites.</p>
+            </div>
+
+            <div class="usage-guide">
+                <h2>How to Use This Tool</h2>
+                <div class="usage-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Enter Username</h3>
+                            <p>Type the username you want to investigate in the search box. For example: "johndoe", "tech_expert", or "cyber_detective"</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Initiate Search</h3>
+                            <p>Click the "Search" button or press Enter to start the search across multiple platforms</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Review Results</h3>
+                            <p>Examine the results for each platform:
+                                <span class="status-badge found">Found</span> Username exists
+                                <span class="status-badge not-found">Not Found</span> Username unavailable
+                                <span class="status-badge error">Error</span> Platform unreachable
+                            </p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Export Data</h3>
+                            <p>Use the "Export Results" button to download a detailed JSON report of your findings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lookup-container">
+                <div class="search-box">
+                    <input type="text" id="username" placeholder="Enter username to search" class="username-input">
+                    <button id="searchBtn" class="search-button">
+                        <i data-lucide="search"></i>
+                        Search
+                    </button>
+                </div>
+
+                <div class="platforms-grid" id="resultsGrid">
+                    <!-- Results will be populated here -->
+                </div>
+
+                <div class="loading-spinner" id="loadingSpinner">
+                    <div class="spinner"></div>
+                    <p>Searching platforms...</p>
+                </div>
+
+                <div class="export-section">
+                    <button id="exportBtn" class="export-button" disabled>
+                        <i data-lucide="download"></i>
+                        Export Results
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/police-auth-check.js"></script>
+    <script src="js/username-lookup.js"></script>
+</body>
+</html>

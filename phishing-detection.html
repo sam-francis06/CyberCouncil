@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tool-dashboard.css">
+    <link rel="stylesheet" href="css/phishing-detection.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <button class="mobile-menu-button">
+            <i class="ph ph-list"></i>
+        </button>
+        <div class="nav-left">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>Cyber Council</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="tool-dashboard.html" class="nav-link">Tools</a>
+            <a href="reports.html" class="nav-link">Reports</a>
+            <a href="user-cyber-laws.html" class="nav-link">Cyber Laws</a>
+            
+            <a href="profile.html" class="user-profile">
+                <i class="ph ph-user"></i>
+            </a>
+            <button class="home-icon">
+                <i class="ph ph-house-line"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-dropdown">
+        <a href="dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-gauge"></i>
+            Dashboard
+        </a>
+        <a href="tool-dashboard.html" class="mobile-nav-link">
+            <i class="ph ph-wrench"></i>
+            Tools
+        </a>
+        <a href="reports.html" class="mobile-nav-link">
+            <i class="ph ph-chart-pie-slice"></i>
+            Reports
+        </a>
+        <a href="user-cyber-laws.html" class="mobile-nav-link">
+            <i class="ph ph-gavel"></i>
+            Cyber Laws
+        </a>
+        <a href="profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>MAIN MENU</h3>
+                <a href="tool-dashboard.html" class="menu-item">
+                    <i class="ph ph-squares-four"></i>
+                    Dashboard
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>SECURITY TOOLS</h3>
+                <a href="phishing-detection.html" class="menu-item active">
+                    <i class="ph ph-fish"></i>
+                    Phishing Detection
+                </a>
+                
+                <a href="wifi-security.html" class="menu-item">
+                    <i class="ph ph-wifi-high"></i>
+                    WiFi Security
+                </a>
+                <a href="social-engineering.html" class="menu-item">
+                    <i class="ph ph-users-three"></i>
+                    Social Engineering
+                </a>
+                <a href="password-checker.html" class="menu-item">
+                    <i class="ph ph-password"></i>
+                    Password Strength
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>ANALYSIS TOOLS</h3>
+                
+                <a href="privacy-analyzer.html" class="menu-item">
+                    <i class="ph ph-shield-check"></i>
+                    Privacy Analysis
+                </a>
+                <a href="malware.html" class="menu-item">
+                    <i class="ph ph-virus"></i>
+                    Malware Scanner
+                </a>
+                <a href="image-metadata.html" class="menu-item">
+                    <i class="ph ph-image"></i>
+                    Image Metadata Extractor
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header">
+                <h1>Phishing Detection Tool</h1>
+                <p>Analyze URLs, emails, and messages to detect potential phishing attempts</p>
+            </div>
+
+            <div class="phishing-container">
+                <div class="phishing-card">
+                    <div class="phishing-header">
+                        <div class="phishing-icon">
+                            <i class="ph ph-fish"></i>
+                        </div>
+                        <h2>URL Analysis</h2>
+                    </div>
+                    <p class="phishing-description">
+                        Enter a URL to analyze for potential phishing indicators. Our AI will check for suspicious patterns, domain age, SSL certificates, and more.
+                    </p>
+                    <div class="input-group">
+                        <input type="text" id="url-input" placeholder="Enter URL (e.g., https://example.com)" class="phishing-input">
+                        <button id="analyze-url" class="phishing-button">
+                            <i class="ph ph-magnifying-glass"></i>
+                            Analyze
+                        </button>
+                    </div>
+                    <div class="recent-scans">
+                        <h3>Recent Scans</h3>
+                        <div class="scan-list" id="url-scan-list">
+                            <div class="empty-state">
+                                <i class="ph ph-clock-countdown"></i>
+                                <p>Your recent URL scans will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phishing-card">
+                    <div class="phishing-header">
+                        <div class="phishing-icon email-icon">
+                            <i class="ph ph-envelope"></i>
+                        </div>
+                        <h2>Email Analysis</h2>
+                    </div>
+                    <p class="phishing-description">
+                        Paste an email content to analyze for phishing attempts. Our system checks for suspicious links, spoofed sender addresses, and social engineering tactics.
+                    </p>
+                    <div class="input-group">
+                        <textarea id="email-input" placeholder="Paste email content here..." class="phishing-textarea"></textarea>
+                        <button id="analyze-email" class="phishing-button">
+                            <i class="ph ph-scan"></i>
+                            Scan Email
+                        </button>
+                    </div>
+                    <div class="recent-scans">
+                        <h3>Recent Scans</h3>
+                        <div class="scan-list" id="email-scan-list">
+                            <div class="empty-state">
+                                <i class="ph ph-clock-countdown"></i>
+                                <p>Your recent email scans will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-container" id="result-container">
+                <div class="result-header">
+                    <h2>Analysis Results</h2>
+                    <button id="close-results" class="close-button">
+                        <i class="ph ph-x"></i>
+                    </button>
+                </div>
+                <div class="result-content">
+                    <div class="result-loading" id="result-loading">
+                        <div class="spinner"></div>
+                        <p>Analyzing... Please wait</p>
+                    </div>
+                    <div class="result-data" id="result-data">
+                        <!-- Results will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="phishing-info-section">
+                <h2>How to Identify Phishing Attempts</h2>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="ph ph-link"></i>
+                        </div>
+                        <h3>Check URLs Carefully</h3>
+                        <p>Look for misspellings, unusual subdomains, or non-standard TLDs. Hover over links before clicking to see the actual destination.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="ph ph-lock"></i>
+                        </div>
+                        <h3>Verify Security</h3>
+                        <p>Ensure websites use HTTPS. Look for the padlock icon in your browser's address bar before entering sensitive information.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="ph ph-warning-circle"></i>
+                        </div>
+                        <h3>Be Wary of Urgency</h3>
+                        <p>Phishing attempts often create a false sense of urgency. Be suspicious of messages demanding immediate action.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="ph ph-user-circle"></i>
+                        </div>
+                        <h3>Verify Sender Identity</h3>
+                        <p>Check email headers and sender addresses carefully. Contact organizations directly through official channels if you're unsure.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth-check.js"></script>
+    <script src="js/tool-dashboard.js"></script>
+    <script src="js/phishing-detection.js"></script>
+    <script src="js/phishing-report.js"></script>
+</body>
+</html>

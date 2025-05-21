@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/police-dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/chart.js@4.4.1/dist/chart.umd.js"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-left">
+          <div class="logo">
+            <i data-lucide="shield"></i>
+            <span>Cyber Council</span>
+          </div>
+        </div>
+        <div class="nav-right">
+          <a href="police-dashboard.html" class="nav-link">Dashboard</a>
+          <a href="case-management.html" class="nav-link">Case Management</a>
+          <a href="police-tool-dashboard.html" class="nav-link">Tools</a>
+          
+          <a href="cyber-laws.html" class="nav-link">Cyber Laws</a>
+          <a href="police-profile.html" class="user-profile">
+            <i class="ph ph-user"></i>
+        </a>
+          <button class="home-icon">
+            <i class="ph ph-house-line"></i>
+          </button>
+        </div>
+      </nav>
+  
+      <div class="mobile-dropdown">
+        <a href="police-dashboard.html" class="mobile-nav-link">
+          <i class="ph ph-gauge"></i>
+          Dashboard
+        </a>
+        <a href="case-management.html" class="mobile-nav-link">
+          <i class="ph ph-folders"></i>
+          Case Management
+        </a>
+        <a href="police-tool-dashboard.html" class="mobile-nav-link">
+          <i class="ph ph-wrench"></i>
+          Tools
+        </a>
+        
+        <a href="cyber-laws.html" class="mobile-nav-link">
+          <i class="ph ph-gavel"></i>
+          Cyber Laws
+        </a>
+        <a href="police-profile.html" class="mobile-nav-link">
+            <i class="ph ph-user"></i>
+            Profile
+        </a>
+      </div>
+
+    <div class="container">
+        <main class="main-content">
+            <div class="dashboard-header">
+                <h1>Police Dashboard</h1>
+                <p>Overview of case management and department statistics</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon pending">
+                        <i class="ph ph-hourglass"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Pending Cases</h3>
+                        <div class="stat-value" id="pendingCases">0</div>
+                        <p>Awaiting investigation</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon in-progress">
+                        <i class="ph ph-spinner"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>In Progress</h3>
+                        <div class="stat-value" id="inProgressCases">0</div>
+                        <p>Currently investigating</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon closed">
+                        <i class="ph ph-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Closed Cases</h3>
+                        <div class="stat-value" id="closedCases">0</div>
+                        <p>Successfully resolved</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon total">
+                        <i class="ph ph-folder"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Total Cases</h3>
+                        <div class="stat-value" id="totalCases">0</div>
+                        <p>All time cases</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Case Status Distribution</h3>
+                    <canvas id="caseStatusChart"></canvas>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Case Priority Breakdown</h3>
+                    <canvas id="priorityChart"></canvas>
+                </div>
+
+                <div class="dashboard-card recent-cases">
+                    <h3>Recent Cases</h3>
+                    <div class="recent-cases-list" id="recentCasesList">
+                        <!-- Recent cases will be populated here -->
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Officer Workload</h3>
+                    <canvas id="officerWorkloadChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/police-dashboard.js"></script>
+    <script src="js/police-auth-check.js"></script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber Council</title>
+    <link rel="icon" type="image/png" href="shield.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/police-tool-dashboard.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <button class="mobile-menu-button">
+        <i data-lucide="menu"></i>
+      </button>
+      <div class="nav-left">
+        <div class="logo">
+          <i data-lucide="shield"></i>
+          <span>Cyber Council</span>
+        </div>
+      </div>
+      <div class="nav-right">
+        <a href="police-dashboard.html" class="nav-link">Dashboard</a>
+        <a href="case-management.html" class="nav-link">Case Management</a>
+        <a href="police-tool-dashboard.html" class="nav-link">Tools</a>
+        
+        <a href="cyber-laws.html" class="nav-link">Cyber Laws</a>
+        <a href="police-profile.html" class="user-profile">
+          <i class="ph ph-user"></i>
+      </a>
+        <button class="home-icon">
+          <i class="ph ph-house-line"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-dropdown">
+      <a href="police-dashboard.html" class="mobile-nav-link">
+        <i class="ph ph-gauge"></i>
+        Dashboard
+      </a>
+      <a href="case-management.html" class="mobile-nav-link">
+        <i class="ph ph-folders"></i>
+        Case Management
+      </a>
+      <a href="police-tool-dashboard.html" class="mobile-nav-link">
+        <i class="ph ph-wrench"></i>
+        Tools
+      </a>
+      
+      <a href="cyber-laws.html" class="mobile-nav-link">
+        <i class="ph ph-gavel"></i>
+        Cyber Laws
+      </a>
+      <a href="police-profile.html" class="mobile-nav-link">
+        <i class="ph ph-user"></i>
+        Profile
+    </a>
+    </div>
+
+    <div class="container">
+      <aside class="sidebar">
+        <div class="menu-section">
+          <h3>MAIN MENU</h3>
+          <a href="police-tool-dashboard.html" class="menu-item active">
+            <i data-lucide="layout-dashboard"></i>
+            Tool-Dashboard
+          </a>
+        </div>
+
+        <div class="menu-section">
+          <h3>Digital Forensics Tools</h3>
+          <a href="file-hash-generator.html" class="menu-item">
+            <i data-lucide="search"></i>
+            File Hash Generator
+          </a>
+          <a href="file-metadata-analyzer.html" class="menu-item">
+            <i data-lucide="file-search"></i>
+            File Metadata Analyzer
+          </a>
+          <a href="metadata.html" class="menu-item">
+            <i data-lucide="image"></i>
+            Image Metadata Viewer
+          </a>
+          <a href="file-type-validator.html" class="menu-item">
+            <i data-lucide="file-check-2"></i>
+            File Type Validator
+          </a>
+        </div>
+
+        <div class="menu-section">
+          <h3>Cyber Investigation Tools</h3>
+          <a href="username-lookup.html" class="menu-item">
+            <i data-lucide="user-search"></i>
+            Username Lookup
+          </a>
+          <a href="url-status-checker.html" class="menu-item">
+            <i data-lucide="globe"></i>
+            URL Live Status Checker
+          </a>
+          <a href="user-ip-display.html" class="menu-item">
+            <i data-lucide="map-pin-house"></i>
+            User IP Display
+          </a>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <div class="header">
+          <h1>Digital Forensics & Investigation Tools</h1>
+          <p>
+            Comprehensive suite of tools for digital forensics, metadata analysis, and cybercrime investigation
+          </p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon vulnerability">
+              <i data-lucide="shield-check"></i>
+            </div>
+            <div class="stat-content">
+              <h3>System Security Score</h3>
+              <div class="stat-value">
+                92 <span class="trend positive">↑ 3%</span>
+              </div>
+              <p>Overall protection rating</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon audit">
+              <i data-lucide="clock"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Last Security Scan</h3>
+              <div class="stat-value">2h ago</div>
+              <p>Infrastructure verified</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon blocked">
+              <i data-lucide="shield-off"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Threats Blocked</h3>
+              <div class="stat-value">
+                1,248 <span class="trend negative">↓ 12%</span>
+              </div>
+              <p>Past 24 hours</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon encryption">
+              <i data-lucide="lock"></i>
+            </div>
+            <div class="stat-content">
+              <h3>Security Protocol</h3>
+              <div class="stat-value">256-bit</div>
+              <p>Military-grade encryption</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tools-grid">
+          <a href="file-hash-generator.html" class="tool-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i data-lucide="search"></i>
+              </div>
+              <h3>File Hash Generator</h3>
+            </div>
+            <p>Digital Fingerprinting</p>
+            <p class="tool-description">
+              Generate cryptographic hash values for files to verify integrity and authenticity during digital forensics investigations.
+            </p>
+            <div class="tool-footer">
+              <button class="primary-button">
+                <i data-lucide="file-plus"></i>
+                Generate Hash
+              </button>
+              <div class="tool-stats">
+                <span>Multiple Algorithms</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="file-metadata-analyzer.html" class="tool-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i data-lucide="file-search"></i>
+              </div>
+              <h3>File Metadata Analyzer</h3>
+            </div>
+            <p>Deep File Analysis</p>
+            <p class="tool-description">
+              Extract and analyze detailed metadata from files to uncover hidden information and establish digital evidence trails.
+            </p>
+            <div class="tool-footer">
+              <button class="primary-button">
+                <i data-lucide="scan"></i>
+                Analyze File
+              </button>
+              <div class="tool-stats">
+                <span>Comprehensive Scan</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="metadata.html" class="tool-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i data-lucide="image"></i>
+              </div>
+              <h3>Image Metadata Viewer</h3>
+            </div>
+            <p>EXIF Data Analysis</p>
+            <p class="tool-description">
+              Extract and analyze EXIF data from images to reveal crucial details about origin, location, and authenticity.
+            </p>
+            <div class="tool-footer">
+              <button class="primary-button">
+                <i data-lucide="eye"></i>
+                View Metadata
+              </button>
+              <div class="tool-stats">
+                <span>EXIF Support</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="file-type-validator.html" class="tool-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i data-lucide="file-check-2"></i>
+              </div>
+              <h3>File Type Validator</h3>
+            </div>
+            <p>File Integrity Check</p>
+            <p class="tool-description">
+              Verify file types and detect file extension manipulation attempts to ensure evidence integrity.
+            </p>
+            <div class="tool-footer">
+              <button class="primary-button">
+                <i data-lucide="check-circle"></i>
+                Validate File
+              </button>
+              <div class="tool-stats">
+                <span>Magic Numbers</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="tool-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i data-lucide="user-search"></i>
+              </div>
+              <h3>Username Lookup</h3>
+            </div>
+            <p>Digital Footprint Analysis</p>
+            <p class="tool-description">
+              Search and analyze username presence across multiple platforms to track digital footprints.
+            </p>
+            <div class="tool-footer">
+              <button class="primary-button">
+                <i data-lucide="search"></i>
+                Search Username
+              </button>
+              <div class="tool-stats">
+                <span>Multi-Platform</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="url-status-checker.html" class="tool-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i data-lucide="globe"></i>
+              </div>
+              <h3>URL Status Checker</h3>
+            </div>
+            <p>Website Verification</p>
+            <p class="tool-description">
+              Check the current status and availability of URLs to verify website authenticity and accessibility.
+            </p>
+            <div class="tool-footer">
+              <button class="primary-button">
+                <i data-lucide="activity"></i>
+                Check Status
+              </button>
+              <div class="tool-stats">
+                <span>Real-time Check</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="user-ip-display.html" class="tool-card">
+            <div class="tool-header">
+              <div class="tool-icon">
+                <i data-lucide="map-pin"></i>
+              </div>
+              <h3>User IP Display</h3>
+            </div>
+            <p>Location Intelligence</p>
+            <p class="tool-description">
+              Display and analyze user IP addresses to track digital location and network information.
+            </p>
+            <div class="tool-footer">
+              <button class="primary-button">
+                <i data-lucide="map"></i>
+                Show Details
+              </button>
+              <div class="tool-stats">
+                <span>Geolocation</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/police-auth-check.js"></script>
+    <script src="js/police-tool-dashboard.js"></script>
+  </body>
+</html>

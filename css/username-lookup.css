@@ -1,0 +1,351 @@
+/* Username Lookup Specific Styles */
+.lookup-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Usage Guide Styles */
+.usage-guide {
+    background: var(--bg-primary);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.usage-guide h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.usage-steps {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.step-content p {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0 0.25rem;
+}
+
+.status-badge.found {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.status-badge.not-found {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.status-badge.error {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.username-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.username-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.search-button:active {
+    transform: translateY(1px);
+}
+
+.search-button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.platform-card {
+    background: var(--bg-primary);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.platform-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.platform-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.platform-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    color: white;
+}
+
+.platform-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.platform-name {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--text-primary);
+}
+
+.platform-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.status-indicator {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+}
+
+.status-found {
+    background-color: #10b981;
+}
+
+.status-not-found {
+    background-color: #ef4444;
+}
+
+.status-error {
+    background-color: #f59e0b;
+}
+
+.platform-details {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.platform-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.platform-link:hover {
+    color: var(--primary-hover);
+    gap: 0.5rem;
+}
+
+.platform-link svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.loading-spinner {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.loading-spinner.active {
+    display: flex;
+}
+
+.spinner {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 3px solid rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s linear infinite;
+}
+
+.loading-spinner p {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.export-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.export-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.5;
+}
+
+.export-button:not(:disabled) {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.export-button:not(:disabled):hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.export-button:not(:disabled):active {
+    transform: translateY(1px);
+}
+
+.export-button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 640px) {
+    .search-box {
+        flex-direction: column;
+    }
+    
+    .search-button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .platforms-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .step-number {
+        margin: 0 auto;
+    }
+}
