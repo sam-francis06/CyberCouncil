@@ -2,6 +2,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Define protected pages that require authentication
     const protectedPages = [
+      'police-dashboard',
+      'police-tool-dashboard',
+      'case-management',
+      'cyber-laws.html',
+      'police-profile.html',
+      'file-hash-generator',
+      'file-metadata-analyzer',
+      'file-type-validator',
+      'metadata',
+      'url-status-checker',
+      'user-ip-display',
+      'username-lookup',
       'police-dashboard.html',
       'police-tool-dashboard.html',
       'case-management.html',
