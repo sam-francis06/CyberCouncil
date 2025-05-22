@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Define protected pages that require authentication
     const protectedPages = [
+      'dashboard',
       'dashboard.html',
       'tool-dashboard.html',
       'reports.html',
