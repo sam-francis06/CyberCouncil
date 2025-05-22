@@ -1,3 +1,5 @@
+🚨 This project is protected under Apache 2.0 License. Do not use or present this project as your own without giving proper credit to **Francis Samuvel**.
+
 # 🛡️ CyberCouncil
 
 **CyberCouncil** is a powerful, user-centric platform that bridges the gap between cybersecurity awareness and cyber law literacy in India. Designed to empower both individuals and law enforcement agencies, CyberCouncil offers practical security tools and legal insights to tackle the challenges of the digital age.
@@ -7,7 +9,7 @@
 ## 🌐 Live Website
 
 👉 [Visit CyberCouncil](https://cybercouncil.netlify.app)  
-
+*Note: Update this link with your deployed Netlify or GitHub Pages URL.*
 
 ---
 
@@ -30,7 +32,6 @@ In today’s digital world, cyber threats and legal ignorance often go hand in h
 - 📶 **WiFi Security Checker** – Analyzes network security risks.
 - 🔐 **Password Strength Analyzer** – Evaluates password strength and provides improvement tips.
 - 🎭 **Social Engineering Detection** – Flags patterns of psychological attacks.
-- 📷 **Image Metadata Viewer** – Analyzes EXIF data in images.
 - 🔒 **Privacy Analyzer** – Assesses apps or websites for privacy risks.
 - 🛡️ **Malware Scanner** – Scans file metadata and detects suspicious behaviors.
 
@@ -59,10 +60,11 @@ Searchable interface containing:
 
 ## 🧰 Built With
 
-- **Frontend**: HTML, CSS, JavaScript
+- **Frontend**: HTML, CSS, JavaScript, React
 - **Styling**: Tailwind CSS
-- **Authentication**: Supabase
+- **Authentication**: Firebase Auth
 - **Deployment**: Netlify
+- **Backend**: Node.js (if applicable)
 
 ---
 
