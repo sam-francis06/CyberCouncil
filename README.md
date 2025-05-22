@@ -79,17 +79,17 @@ Searchable interface containing:
 - **Francis Samuvel**  
   B.Tech IT | Cybersecurity & Frontend Enthusiast  
   📍 India  
-  🌐 [Portfolio](https://your-portfolio-link.com) | [LinkedIn](https://www.linkedin.com/in/your-linkedin) | [GitHub](https://github.com/your-username)
+  🌐 [Portfolio](https://your-portfolio-link.com) | [LinkedIn](www.linkedin.com/in/francis-samuvel-a0a536293) | [GitHub](https://github.com/sam-francis06)
 
 - **Lohitha**  
   B.Tech IT | Cybersecurity Enthusiast  
   📍 India  
-  🌐 [Portfolio](https://lohitha-portfolio-link.com) | [LinkedIn](https://www.linkedin.com/in/lohitha-linkedin) | [GitHub](https://github.com/lohitha-username)
+  🌐 [Portfolio](https://lohitha-portfolio-link.com) | [LinkedIn](https://www.linkedin.com/in/lohitha-vengatesan-805671293) | [GitHub](https://github.com/lohitha-ux)
 
 - **Guhan**  
   B.Tech IT | Cybersecurity Enthusiast  
   📍 India  
-  🌐 [Portfolio](https://guhan-portfolio-link.com) | [LinkedIn](https://www.linkedin.com/in/guhan-linkedin) | [GitHub](https://github.com/guhan-username)
+  🌐 [Portfolio](https://guhan-portfolio-link.com) | [LinkedIn](https://www.linkedin.com/in/guhan-n-103687343/) | [GitHub](https://github.com/Guhan-224)
 
 ---
 
