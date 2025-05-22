@@ -1,0 +1,7 @@
+CyberCouncil - A Cybersecurity and Legal Awareness Platform
+
+This project, "CyberCouncil," was created by Francis Samuvel, Lohitha, and Guhan in 2025 as part of their B.Tech IT endeavors.
+
+All rights reserved under the Apache License 2.0. Unauthorized copying, distribution, or use of this project without proper attribution to the authors (Francis Samuvel, Lohitha, and Guhan) is a violation of the license terms.
+
+For licensing details, see the LICENSE file in the project repository.
