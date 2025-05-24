@@ -470,6 +470,23 @@ body {
 
 
 
+/* Card Button Styles */
+.card-button {
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.card-button:hover, .card-button:focus {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+  transform: translateY(-2px) scale(1.02);
+}
+.card-action {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+  color: #007bff;
+}
+
 /* Improved Key Features Section Styling */
 .features {
 padding: 5rem 0;
