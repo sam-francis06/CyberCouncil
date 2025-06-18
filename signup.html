@@ -292,8 +292,9 @@
 
         if (error) throw error;
 
-        statusMsg.innerHTML = '✅ Registration successful! Please check your Email';
+        statusMsg.innerHTML = '✅ Registration successful! Please check your email for the verification link. If you don\'t see it, check your Spam or Junk folder.';
         statusMsg.className = 'status-message success';
+
 
         setTimeout(() => {
           window.location.href = 'login.html';
